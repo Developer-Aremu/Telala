@@ -50,7 +50,7 @@ export function Header() {
         <div className="mx-auto flex h-16 max-w-[1600px] items-center justify-between px-5 md:px-10">
           <Link to="/" className="flex items-center gap-2.5">
             <img
-              src="public/Telala-Logo.png"
+              src="public/TelalaLogo.png"
               alt="Telala Logo"
               className="h-6 w-auto object-contain"
             />
