@@ -102,7 +102,7 @@ export function BeatLeak() {
 }
 
 const TYPEWRITER_PARAGRAPHS = [
-  "It's not your land. It's some of the most productive ground on earth.",
+  //"It's not your land. It's some of the most productive ground on earth.",
   "It's not your trees.",
   "It's not your people.",
 ];
@@ -121,8 +121,8 @@ export function BeatFlicker() {
 
     const fullText = TYPEWRITER_PARAGRAPHS[currentParagraphIndex];
     const typingSpeed = 32; 
-    const pauseTime = 3500; // Pause when a single paragraph is fully shown
-    const cyclePauseTime = 6000; // 6-second blank screen pause after all paragraphs finish
+    const pauseTime = 2500; // Pause when a single paragraph is fully shown
+    const cyclePauseTime = 4000; // 6-second blank screen pause after all paragraphs finish
 
     let timer: NodeJS.Timeout;
 

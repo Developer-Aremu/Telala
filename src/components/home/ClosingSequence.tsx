@@ -1,11 +1,12 @@
 import { Link } from "@tanstack/react-router";
-import { motion } from "motion/react";
-import { Rise, EASE } from "@/components/site/motion-primitives";
+import { motion, useReducedMotion } from "motion/react";
+import { WordsIn, Rise, EASE } from "@/components/site/motion-primitives";
 import industryScale from "@/assets/industry-scale.jpg";
 import canopyDay from "@/assets/canopy-day.jpg";
 import { useState, useEffect } from "react";
 
 /* BEAT 13 — Where you fit. */
+
 const PATHS = [
   { label: "I own a plantation", to: "/owners" as const },
   { label: "I want to own one", to: "/owners" as const },
@@ -20,56 +21,45 @@ const QUESTIONS = [
 
 export function BeatWhereYouFit() {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [isPaused, setIsPaused] = useState(false);
-  const [key, setKey] = useState(0); // forces Rise re-animation on loop
+  const [key, setKey] = useState(0); // forces WordsIn re-animation on loop
+  const reduced = useReducedMotion();
 
   useEffect(() => {
-    let timer: NodeJS.Timeout;
-
-    if (isPaused) {
-      // 4-second blank pause after all 3 questions finish
-      timer = setTimeout(() => {
-        setIsPaused(false);
-        setCurrentIndex(0);
-        setKey((prev) => prev + 1);
-      }, 2000);
-    } else {
-      // Each question stays visible for 3.5 seconds before moving to the next
-      timer = setTimeout(() => {
-        if (currentIndex < QUESTIONS.length - 1) {
-          setCurrentIndex((prev) => prev + 1);
-          setKey((prev) => prev + 1); // trigger entrance animation for next question
-        } else {
-          // Finished the last question, trigger the blank pause before looping
-          setIsPaused(true);
-        }
-      }, 3500);
-    }
+    // Each question stays visible for 3.5 seconds before cycling to the next
+    const timer = setTimeout(() => {
+      setCurrentIndex((prev) => (prev + 1) % QUESTIONS.length);
+      setKey((prev) => prev + 1); // trigger word-by-word entrance for next question
+    }, 3500);
 
     return () => clearTimeout(timer);
-  }, [currentIndex, isPaused]);
+  }, [currentIndex]);
 
   return (
     <section className="border-t border-hairline bg-background py-24 md:py-32">
       <div className="mx-auto max-w-[1600px] px-5 md:px-10">
         
-        {/* Looping sequential H2 container with fixed minimum height to prevent layout jumps */}
-        <div className="min-h-[100px] flex flex-col justify-center">
-          {!isPaused && (
-            <div key={key}>
-              <Rise delay={0.2}>
-                <h2 className="beat-lg max-w-[24ch]">
-                  {QUESTIONS[currentIndex]}
-                </h2>
-              </Rise>
-            </div>
-          )}
+        {/* Looping sequential H2 container with Word-by-Word animation */}
+        <div className="min-h-[140px] flex flex-col justify-center">
+          <div key={key}>
+            <h2 className="beat-lg max-w-[24ch]">
+              <WordsIn text={QUESTIONS[currentIndex]} delay={0.2} stagger={0.08} />
+            </h2>
+          </div>
         </div>
 
-        <Rise delay={0.1}>
-          <p className="quiet mt-6 text-[#da2e2b]">However you're entering, there's a defined path in.</p>
-        </Rise>
+        {/* Animated indicator section matching your style */}
+        <motion.div
+          className="mt-6 flex items-center gap-3"
+          initial={reduced ? false : { opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true, amount: 0.4 }}
+          transition={{ duration: 1.2, delay: 0.4 }}
+        >
+          <span className="label text-[#da2e2b]">However you're entering, there's a defined path in.</span>
+          <span className="block h-px w-16 bg-[#da2e2b]/50" />
+        </motion.div>
 
+        {/* Grid links */}
         <div className="mt-14 grid gap-px border border-hairline bg-border md:grid-cols-3">
           {PATHS.map((p, i) => (
             <motion.div
@@ -99,6 +89,7 @@ export function BeatWhereYouFit() {
     </section>
   );
 }
+
 /* BEAT 14 — The industry. */
 export function BeatIndustry() {
   return (
