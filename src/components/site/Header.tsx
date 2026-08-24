@@ -38,85 +38,102 @@ export function Header() {
   const light = !scrolled;
 
   return (
-    <header
-      className={cn(
-        "fixed inset-x-0 top-0 z-50 transition-[background-color,border-color,color] duration-700",
-        scrolled
-          ? "border-b border-border bg-background/90 text-foreground backdrop-blur-md"
-          : "border-b border-transparent text-ink-foreground",
-      )}
-    >
-      <div className="mx-auto flex h-16 max-w-[1600px] items-center justify-between px-5 md:px-10">
-        <Link to="/" className="flex items-center gap-2.5">
-       <img
-        src="src/assets/Telala-Logo.png"
-        alt="Telala Logo"
-        className="h-6 w-auto object-contain"
-       />
-       </Link>
-
-        <nav className="hidden items-center gap-7 lg:flex">
-          {NAV.map((item) => (
-            <Link
-              key={item.to}
-              to={item.to}
-              className="label opacity-70 transition-opacity duration-300 hover:opacity-100"
-              activeProps={{ className: "label opacity-100 text-signal" }}
-            >
-              {item.label}
-            </Link>
-          ))}
-        </nav>
-
-        <div className="flex items-center gap-3">
-          <Link
-            to="/contact"
-            className={cn(
-              "label hidden px-4 py-3 transition-colors duration-300 md:inline-flex",
-              light
-                ? "bg-ink-foreground text-ink hover:bg-signal hover:text-signal-foreground"
-                : "bg-foreground text-background hover:bg-signal hover:text-signal-foreground",
-            )}
-          >
-            Join the waitlist
+    <>
+      <header
+        className={cn(
+          "fixed inset-x-0 top-0 z-50 transition-[background-color,border-color,color] duration-700",
+          scrolled
+            ? "border-b border-border bg-background/90 text-foreground backdrop-blur-md"
+            : "border-b border-transparent text-ink-foreground",
+        )}
+      >
+        <div className="mx-auto flex h-16 max-w-[1600px] items-center justify-between px-5 md:px-10">
+          <Link to="/" className="flex items-center gap-2.5">
+            <img
+              src="src/assets/Telala-Logo.png"
+              alt="Telala Logo"
+              className="h-6 w-auto object-contain"
+            />
           </Link>
-          <button
-            aria-label="Open menu"
-            onClick={() => setOpen(true)}
-            className="label px-2 py-3 lg:hidden"
-          >
-            Menu
-          </button>
-        </div>
-      </div>
 
-      {open ? (
-        <div className="fixed inset-0 z-50 flex flex-col bg-ink text-ink-foreground">
-          <div className="flex h-16 items-center justify-between px-5 md:px-10">
-            <span className="font-display text-base font-extrabold uppercase tracking-[-0.05em]">
-              Telala
-            </span>
-            <button aria-label="Close menu" onClick={() => setOpen(false)} className="label px-2 py-3">
-              Close
-            </button>
-          </div>
-          <nav className="flex flex-1 flex-col justify-center gap-4 px-5 md:px-10">
+          <nav className="hidden items-center gap-7 lg:flex">
             {NAV.map((item) => (
               <Link
                 key={item.to}
                 to={item.to}
-                onClick={() => setOpen(false)}
-                className="beat-md text-ink-foreground"
+                className="label opacity-70 transition-opacity duration-300 hover:opacity-100"
+                activeProps={{ className: "label opacity-100 text-signal" }}
               >
                 {item.label}
               </Link>
             ))}
-            <Link to="/contact" onClick={() => setOpen(false)} className="beat-md text-signal">
+          </nav>
+
+          <div className="flex items-center gap-3">
+            <Link
+              to="/contact"
+              className={cn(
+                "label hidden px-4 py-3 transition-colors duration-300 md:inline-flex",
+                light
+                  ? "bg-ink-foreground text-ink hover:bg-signal hover:text-signal-foreground"
+                  : "bg-foreground text-background hover:bg-signal hover:text-signal-foreground",
+              )}
+            >
               Join the waitlist
             </Link>
-          </nav>
+            <button
+              aria-label="Open menu"
+              onClick={() => setOpen(true)}
+              className="label px-2 py-3 lg:hidden"
+            >
+              Menu
+            </button>
+          </div>
         </div>
-      ) : null}
-    </header>
+      </header>
+
+      {/* Mobile Full Screen Menu Overlay - Extracted outside the header element to completely prevent inheritance bugs */}
+      {open && (
+        <div className="fixed inset-0 z-[100] flex flex-col justify-between bg-background/23 backdrop-blur-2xl px-6 py-8 text-foreground md:hidden">
+          
+          {/* TOP SECTION: Brand Logo and Close Button */}
+          <div className="flex items-center justify-between w-full">
+            <span className="font-bold tracking-widest text-foreground">TELALA</span>
+            <button 
+              onClick={() => setOpen(false)}
+              className="label text-foreground uppercase tracking-wider cursor-pointer"
+            >
+              Close
+            </button>
+          </div>
+
+          {/* MIDDLE SECTION: Navigation Links mapped dynamically from NAV config */}
+          <div className="flex flex-col space-y-6 my-auto">
+            {NAV.map((item) => (
+              <Link 
+                key={item.to}
+                to={item.to} 
+                className="beat-md text-foreground hover:text-signal transition-colors uppercase"
+                onClick={() => setOpen(false)}
+              >
+                {item.label}
+              </Link>
+            ))}
+          </div>
+
+          {/* BOTTOM SECTION: Call to Action button pinned cleanly at the footer */}
+          <div className="w-full pb-4">
+            <Link 
+              to="/contact" 
+              className="block text-center w-full bg-signal py-4 text-signal-foreground font-medium uppercase tracking-wider transition-colors hover:bg-foreground"
+              onClick={() => setOpen(false)}
+            >
+              Join the waitlist
+            </Link>
+          </div>
+
+        </div>
+      )}
+    </>
   );
 }

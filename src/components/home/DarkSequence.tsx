@@ -102,7 +102,7 @@ export function BeatLeak() {
 }
 
 const TYPEWRITER_PARAGRAPHS = [
-  //"It's not your land. It's some of the most productive ground on earth.",
+  "It's not your land.",
   "It's not your trees.",
   "It's not your people.",
 ];
