@@ -77,7 +77,7 @@ export function BeatLeak() {
         className="absolute inset-0 -z-10 size-full scale-110 object-cover opacity-70 grayscale"
         style={{ y }}
       />
-      <div className="mx-auto flex min-h-screen max-w-[1600px] flex-col justify-center gap-8 px-5 py-32 md:px-10">
+      <div className="mx-auto flex min-h-[screen] max-w-[1600px] flex-col justify-center gap-8 px-5 py-32 md:px-10">
         <motion.h2
           className="beat-lg max-w-[20ch] text-ink-foreground"
           initial={{ opacity: 0, y: 24 }}
@@ -119,7 +119,7 @@ export function BeatFlicker() {
   useEffect(() => {
     if (!isInView) return;
 
-    const fullText = TYPEWRITER_PARAGRAPHS[currentParagraphIndex];
+    const fullText = TYPEWRITER_PARAGRAPHS[currentParagraphIndex] ?? "";
     const typingSpeed = 32; 
     const pauseTime = 2500; // Pause when a single paragraph is fully shown
     const cyclePauseTime = 4000; // 6-second blank screen pause after all paragraphs finish
@@ -192,7 +192,7 @@ export function BeatFlicker() {
 /* BEAT 5 — Full pause. */
 export function BeatPause() {
   return (
-    <section className="relative flex min-h-[20vh] items-center bg-ink">
+    <section className="relative flex min-h-[10vh] items-center bg-ink">
       <div className="sticky top-0 flex h-screen w-full items-center">
         <div className="mx-auto w-full max-w-[1600px] px-5 md:px-10">
           <motion.p
