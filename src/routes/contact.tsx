@@ -7,11 +7,6 @@ export const Route = createFileRoute('/contact')({
   component: WaitlistPage,
 })
 
-/* ==========================================================================
-   TELALA WAITLIST ROUTE
-   Multi-step application flow styled with the core Telala design primitives.
-   ================================================================---------- */
-
 interface FormData {
   name: string
   email: string
@@ -20,6 +15,9 @@ interface FormData {
   institution: string
   hectares: string
   runToday: string
+  capitalInterest: string
+  capitalRange: string
+  capitalTimeline: string
   message: string
 }
 
@@ -35,10 +33,12 @@ export function WaitlistPage() {
     institution: '',
     hectares: '',
     runToday: '',
+    capitalInterest: '',
+    capitalRange: '',
+    capitalTimeline: '',
     message: ''
   })
 
-  // Audience categories mirroring your exact content requirements
   const audiences: Record<string, { topTag?: string; title: string; description: string; bestFor: string; tagLabel: string }> = {
     owner: {
       title: "I run a plantation already",
@@ -59,7 +59,6 @@ export function WaitlistPage() {
       tagLabel: "Capital"
     },
     other: {
-      //topTag: "GENERAL INQUIRY",
       title: "Something else",
       description: "Press, partnership, or a question before any of the above.",
       bestFor: "Ecosystem partners, journalists, and strategic collaborators.",
@@ -67,28 +66,34 @@ export function WaitlistPage() {
     }
   }
 
-  // FIX: Added optional chaining (?.) so TypeScript knows it's safe if selectedAudience is null
   const currentAudienceTag = selectedAudience ? audiences[selectedAudience]?.tagLabel : ''
 
   return (
-    <div className="min-h-screen bg-background text-foreground pt-12 pb-24">
-      <div className="max-w-[960px] mx-auto px-6">
-        
-        {/* ------------------------------------------------------------------
-            TOP PROGRESS INDICATOR BAR
-            ------------------------------------------------------------------ */}
-        <div className="flex items-center gap-3 mb-14 max-w-[720px] mx-auto">
+    <div className="min-h-screen bg-background text-foreground pb-24 overflow-y-auto">
+      
+      {/* ==================================================================
+          STICKY PROGRESS BAR
+          ================================================================== */}
+      <div className="sticky top-0 z-20 bg-background/95 backdrop-blur-sm pt-6 pb-4 border-b border-hairline/40">
+        <div className="flex items-center gap-3 max-w-[720px] mx-auto px-6">
+          {/* Step 1 Node & Line */}
           <div className="flex-1 flex items-center gap-3">
-            <div className={`w-2 h-2 rounded-full transition-all ${currentStep >= 1 ? 'bg-signal' : 'bg-border'}`} />
+            <div className={`w-2 h-2 rounded-full transition-all ${currentStep >= 1 ? 'bg-signal' : 'bg-[#2A2620]'}`} />
             <div className={`flex-1 h-[1px] transition-all ${currentStep > 1 ? 'bg-signal' : 'bg-hairline'}`} />
           </div>
+          
+          {/* Step 2 Node & Line */}
           <div className="flex-1 flex items-center gap-3">
-            <div className={`w-2 h-2 rounded-full transition-all ${currentStep >= 2 ? 'bg-signal' : 'bg-border'}`} />
+            <div className={`w-2 h-2 rounded-full transition-all ${currentStep >= 2 ? 'bg-signal' : 'bg-[#2A2620]'}`} />
             <div className={`flex-1 h-[1px] transition-all ${currentStep > 2 ? 'bg-signal' : 'bg-hairline'}`} />
           </div>
-          <div className={`w-2 h-2 rounded-full transition-all ${currentStep >= 3 ? 'bg-signal' : 'bg-border'}`} />
-        </div>
 
+          {/* Step 3 Node */}
+          <div className={`w-2 h-2 rounded-full transition-all ${currentStep >= 3 ? 'bg-signal' : 'bg-[#2A2620]'}`} />
+        </div>
+      </div>
+
+      <div className="max-w-[960px] mx-auto px-6 pt-8">
         {/* ------------------------------------------------------------------
             STEP 1: AUDIENCE SELECTION CARDS
             ------------------------------------------------------------------ */}
@@ -100,7 +105,7 @@ export function WaitlistPage() {
           >
             <div className="mb-12 text-left max-w-[640px] mx-auto">
               <Rise>
-                <h1 className="beat-md mt-6 text-foreground">
+                <h1 className="beat-md mt-2 text-foreground">
                   Tell us where you’re starting from.
                 </h1>
               </Rise>
@@ -232,7 +237,6 @@ export function WaitlistPage() {
                 </div>
               </div>
 
-              {/* Conditional input fields for existing plantation owners */}
               {selectedAudience === 'owner' && (
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="flex flex-col gap-[7px]">
@@ -261,6 +265,58 @@ export function WaitlistPage() {
                     </div>
                   </div>
                 </div>
+              )}
+
+              {selectedAudience === 'capital' && (
+                <>
+                  <div className="flex flex-col gap-[7px]">
+                    <label className="text-[13px] font-medium text-foreground">Where’s the interest?</label>
+                    <div className="flex flex-wrap gap-2 pt-1">
+                      {['Plantation development', 'Processing infrastructure', 'Both', 'Still deciding'].map(opt => (
+                        <button 
+                          type="button" 
+                          key={opt} 
+                          onClick={() => setFormData({...formData, capitalInterest: opt})} 
+                          className={`border rounded-[4px] px-3 py-2 text-xs transition-colors cursor-pointer ${formData.capitalInterest === opt ? 'border-signal bg-signal/10 text-foreground' : 'border-hairline bg-card text-muted-foreground'}`}
+                        >
+                          {opt}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="flex flex-col gap-[7px]">
+                    <label className="text-[13px] font-medium text-foreground">Capital range</label>
+                    <div className="flex flex-wrap gap-2 pt-1">
+                      {['Under $250K', '$250K–$1M', '$1M–$10M', '$10M+'].map(opt => (
+                        <button 
+                          type="button" 
+                          key={opt} 
+                          onClick={() => setFormData({...formData, capitalRange: opt})} 
+                          className={`border rounded-[4px] px-3 py-2 text-xs transition-colors cursor-pointer ${formData.capitalRange === opt ? 'border-signal bg-signal/10 text-foreground' : 'border-hairline bg-card text-muted-foreground'}`}
+                        >
+                          {opt}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="flex flex-col gap-[7px]">
+                    <label className="text-[13px] font-medium text-foreground">Timeline</label>
+                    <div className="flex flex-wrap gap-2 pt-1">
+                      {['Ready to deploy', 'Evaluating', 'Long-term interest'].map(opt => (
+                        <button 
+                          type="button" 
+                          key={opt} 
+                          onClick={() => setFormData({...formData, capitalTimeline: opt})} 
+                          className={`border rounded-[4px] px-3 py-2 text-xs transition-colors cursor-pointer ${formData.capitalTimeline === opt ? 'border-signal bg-signal/10 text-foreground' : 'border-hairline bg-card text-muted-foreground'}`}
+                        >
+                          {opt}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                </>
               )}
 
               <div className="flex flex-col gap-[7px]">
