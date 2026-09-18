@@ -19,7 +19,7 @@ function RouteComponent() {
           {/* LEFT & MIDDLE COLUMNS (span 2 columns using a 2-column sub-masonry grid) */}
           <div className="lg:col-span-2 flex flex-col gap-6">
 
-            {/* TOP BLOCK: Intro / Headline with Circular Glowing Red Action Button */}
+            {/* TOP BLOCK: Intro / Headline with Sharp Action Button */}
             <motion.div 
               initial={{ opacity: 0, y: 12 }} 
               animate={{ opacity: 1, y: 0 }} 
@@ -39,16 +39,8 @@ function RouteComponent() {
                 </Rise>
               </div>
               
-              {/* Circular Glowing Red Arrow Button */}
-              <div className="flex-shrink-0 z-10 hidden sm:block">
-                <a 
-                  href="/contact" 
-                  className="w-14 h-14 rounded-full border border-red-500/40 bg-background/50 flex items-center justify-center text-foreground hover:border-red-500 hover:text-red-500 transition-all duration-300 shadow-[0_0_20px_rgba(239,68,68,0.25)] hover:shadow-[0_0_30px_rgba(239,68,68,0.5)] cursor-pointer"
-                  aria-label="Next"
-                >
-                  <span className="text-xl">→</span>
-                </a>
-              </div>
+              {/* Sharp Action Button (Zero roundness, no border, glowing red shadow) */}
+             
             </motion.div>
 
             {/* PINTEREST-STYLE ASYMMETRIC MASONRY SUB-GRID */}
@@ -62,7 +54,7 @@ function RouteComponent() {
                   initial={{ opacity: 0, y: 12 }} 
                   animate={{ opacity: 1, y: 0 }} 
                   transition={{ duration: 0.6, delay: 0.2, ease: EASE }}
-                  className="rounded-[6px] overflow-hidden relative group shadow-lg w-full aspect-square"
+                  className="rounded-none overflow-hidden relative group shadow-lg w-full aspect-square"
                 >
                   <div className="w-full h-full bg-[#1C261E] relative overflow-hidden flex flex-col justify-between p-6">
                     <img 
@@ -88,7 +80,7 @@ function RouteComponent() {
                   initial={{ opacity: 0, y: 12 }} 
                   animate={{ opacity: 1, y: 0 }} 
                   transition={{ duration: 0.6, delay: 0.4, ease: EASE }}
-                  className="rounded-[6px] overflow-hidden relative group shadow-lg w-full h-[450px]"
+                  className="rounded-none overflow-hidden relative group shadow-lg w-full h-[450px]"
                 >
                   <div className="w-full h-full bg-[#141B26] relative overflow-hidden flex flex-col justify-between p-6">
                     <img 
@@ -119,7 +111,7 @@ function RouteComponent() {
                   initial={{ opacity: 0, y: 12 }} 
                   animate={{ opacity: 1, y: 0 }} 
                   transition={{ duration: 0.6, delay: 0.3, ease: EASE }}
-                  className="rounded-[6px] overflow-hidden relative group shadow-lg w-full h-[600px]"
+                  className="rounded-none overflow-hidden relative group shadow-lg w-full h-[600px]"
                 >
                   <div className="w-full h-full bg-[#1E222A] relative overflow-hidden flex flex-col justify-between p-8">
                     <img 
@@ -145,7 +137,7 @@ function RouteComponent() {
                   initial={{ opacity: 0, y: 12 }} 
                   animate={{ opacity: 1, y: 0 }} 
                   transition={{ duration: 0.6, delay: 0.5, ease: EASE }}
-                  className="rounded-[6px] overflow-hidden relative group shadow-lg w-full h-[300px]"
+                  className="rounded-none overflow-hidden relative group shadow-lg w-full h-[300px]"
                 >
                   <div className="w-full h-full bg-[#18231C] relative overflow-hidden flex flex-col justify-between p-6">
                     <img 
@@ -179,7 +171,7 @@ function RouteComponent() {
               initial={{ opacity: 0, y: 12 }} 
               animate={{ opacity: 1, y: 0 }} 
               transition={{ duration: 0.6, delay: 0.1, ease: EASE }}
-              className="rounded-[6px] overflow-hidden relative group shadow-lg"
+              className="rounded-none overflow-hidden relative group shadow-lg"
             >
               <div className="w-full h-[520px] bg-[#16202B] relative overflow-hidden flex flex-col justify-between p-8">
                 <img 
@@ -203,7 +195,7 @@ function RouteComponent() {
                   <div>
                     <a 
                       href="#" 
-                      className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 text-white px-4 py-2 rounded-[4px] text-[12px] font-medium hover:bg-signal hover:text-signal-foreground hover:border-signal transition-colors"
+                      className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 text-white px-4 py-2 rounded-none text-[12px] font-medium hover:bg-signal hover:text-signal-foreground hover:border-signal transition-colors"
                     >
                       Read the report →
                     </a>
@@ -217,7 +209,7 @@ function RouteComponent() {
               initial={{ opacity: 0, y: 12 }} 
               animate={{ opacity: 1, y: 0 }} 
               transition={{ duration: 0.6, delay: 0.2, ease: EASE }}
-              className="rounded-[6px] overflow-hidden relative group shadow-lg"
+              className="rounded-none overflow-hidden relative group shadow-lg"
             >
               <div className="w-full h-[220px] bg-[#1C2026] relative overflow-hidden flex flex-col justify-between p-6">
                 <img 
@@ -243,7 +235,7 @@ function RouteComponent() {
               initial={{ opacity: 0, y: 12 }} 
               animate={{ opacity: 1, y: 0 }} 
               transition={{ duration: 0.6, delay: 0.3, ease: EASE }}
-              className="bg-card border border-hairline rounded-[6px] p-6 flex flex-col justify-between shadow-lg"
+              className="bg-card border border-hairline rounded-none p-6 flex flex-col justify-between shadow-lg"
             >
               <div>
                 <h3 className="text-[18px] font-semibold leading-tight tracking-tight text-foreground mb-3">
@@ -255,11 +247,11 @@ function RouteComponent() {
                   <input 
                     type="email" 
                     placeholder="Email address" 
-                    className="bg-background border border-hairline rounded-[4px] px-3 py-2 text-[13px] text-foreground placeholder:text-muted-foreground/40 flex-1 focus:outline-none focus:border-signal transition-colors"
+                    className="bg-background border border-hairline rounded-none px-3 py-2 text-[13px] text-foreground placeholder:text-muted-foreground/40 flex-1 focus:outline-none focus:border-signal transition-colors"
                   />
                   <button 
                     type="submit" 
-                    className="bg-signal text-background px-3 py-2 rounded-[4px] font-medium hover:opacity-90 transition-opacity cursor-pointer"
+                    className="bg-signal text-background px-3 py-2 rounded-none font-medium hover:opacity-90 transition-opacity cursor-pointer"
                   >
                     →
                   </button>
@@ -268,10 +260,10 @@ function RouteComponent() {
                   <span className="text-[11px] text-muted-foreground relative px-2 bg-card">Or continue with</span>
                 </div>
                 <div className="grid grid-cols-2 gap-2">
-                  <button type="button" className="border border-hairline rounded-[4px] py-2 text-[11px] font-medium text-foreground hover:border-signal transition-colors cursor-pointer">
+                  <button type="button" className="border border-hairline rounded-none py-2 text-[11px] font-medium text-foreground hover:border-signal transition-colors cursor-pointer">
                     Google
                   </button>
-                  <button type="button" className="border border-hairline rounded-[4px] py-2 text-[11px] font-medium text-foreground hover:border-signal transition-colors cursor-pointer">
+                  <button type="button" className="border border-hairline rounded-none py-2 text-[11px] font-medium text-foreground hover:border-signal transition-colors cursor-pointer">
                     LinkedIn
                   </button>
                 </div>
@@ -283,14 +275,14 @@ function RouteComponent() {
         </div>
 
         {/* ==================================================================
-            FEATURED NEWSLETTER BANNER SECTION (Escaped JSX Entities)
+            FEATURED NEWSLETTER BANNER SECTION (Sharp Corners)
             ================================================================== */}
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7, ease: EASE }}
-          className="w-full rounded-[8px] overflow-hidden relative shadow-2xl border border-hairline"
+          className="w-full rounded-none overflow-hidden relative shadow-2xl border border-hairline"
         >
           <div className="w-full bg-[#131A22] relative overflow-hidden flex flex-col p-8 md:p-14 min-h-[440px] justify-between">
             {/* Background Image with Gradient Overlay */}
@@ -304,17 +296,17 @@ function RouteComponent() {
             {/* Top Category Header */}
             <div className="relative z-10">
               <span className="text-[12px] tracking-[0.2em] uppercase font-semibold text-signal">
-                Featured Newsletter[cite: 4]
+                Featured Newsletter
               </span>
             </div>
 
             {/* Center Content & Form */}
             <div className="relative z-10 max-w-[620px] my-6 flex flex-col gap-6">
               <h2 className="text-[36px] md:text-[46px] font-semibold leading-[1.1] tracking-tight text-white">
-                Insights to navigate what&rsquo;s next <span className="text-signal">&rsaquo;</span>[cite: 4]
+                Insights to navigate what&rsquo;s next <span className="text-signal">&rsaquo;</span>
               </h2>
               <p className="text-[15px] md:text-[16px] text-zinc-300 leading-relaxed">
-                Sharper decisions start with The CEO Shortlist, a bimonthly newsletter of our best ideas for the C-suite[cite: 4].
+                Sharper decisions start with The CEO Shortlist, a bimonthly newsletter of our best ideas for the C-suite.
               </p>
 
               {/* Inline Subscribe Form */}
@@ -322,13 +314,13 @@ function RouteComponent() {
                 <input 
                   type="email" 
                   placeholder="Email address"
-                  className="bg-background/90 backdrop-blur-md border border-hairline rounded-[4px] px-4 py-3 text-[14px] text-foreground placeholder:text-muted-foreground/50 flex-1 focus:outline-none focus:border-signal transition-colors shadow-inner"
+                  className="bg-background/90 backdrop-blur-md border border-hairline rounded-none px-4 py-3 text-[14px] text-foreground placeholder:text-muted-foreground/50 flex-1 focus:outline-none focus:border-signal transition-colors shadow-inner"
                 />
                 <button 
                   type="submit" 
-                  className="bg-signal text-signal-foreground px-6 py-3 rounded-[4px] font-semibold text-[14px] hover:opacity-90 transition-opacity cursor-pointer shadow-lg whitespace-nowrap"
+                  className="bg-signal text-signal-foreground px-6 py-3 rounded-none font-semibold text-[14px] hover:opacity-90 transition-opacity cursor-pointer shadow-lg whitespace-nowrap"
                 >
-                  Subscribe[cite: 4]
+                  Subscribe
                 </button>
               </form>
             </div>
