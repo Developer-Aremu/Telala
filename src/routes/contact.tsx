@@ -59,7 +59,7 @@ export function WaitlistPage() {
       tagLabel: "Capital"
     },
     other: {
-      topTag: "GENERAL INQUIRY",
+      //topTag: "GENERAL INQUIRY",
       title: "Something else",
       description: "Press, partnership, or a question before any of the above.",
       bestFor: "Ecosystem partners, journalists, and strategic collaborators.",
