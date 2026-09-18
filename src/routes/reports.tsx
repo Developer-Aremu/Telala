@@ -9,16 +9,14 @@ export const Route = createFileRoute('/reports')({
 function RouteComponent() {
   return (
     <div className="min-h-screen bg-background text-foreground pt-28 pb-24 overflow-y-auto">
-      <div className="max-w-[1500px] mx-auto px-6 md:px-10">
+      <div className="max-w-[1500px] mx-auto px-6 md:px-10 flex flex-col gap-16">
         
         {/* ==================================================================
-            LAYOUT GRID: Left Column (Pinterest Style Cards) & Right Column (Featured Report + Sub)
+            MAIN CONTENT SECTION
             ================================================================== */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-start">
 
-          {/* ==================================================================
-              LEFT & MIDDLE COLUMNS (span 2 columns using a 2-column sub-masonry grid)
-              ================================================================== */}
+          {/* LEFT & MIDDLE COLUMNS (span 2 columns using a 2-column sub-masonry grid) */}
           <div className="lg:col-span-2 flex flex-col gap-6">
 
             {/* TOP BLOCK: Intro / Headline with Circular Glowing Red Action Button */}
@@ -142,7 +140,7 @@ function RouteComponent() {
                   </div>
                 </motion.div>
 
-                {/* CARD 4: New Video Card (Replacing the old newsletter slot) */}
+                {/* CARD 4: New Video Card */}
                 <motion.div 
                   initial={{ opacity: 0, y: 12 }} 
                   animate={{ opacity: 1, y: 0 }} 
@@ -173,9 +171,7 @@ function RouteComponent() {
             </div>
           </div>
 
-          {/* ==================================================================
-              RIGHT COLUMN: FEATURED REPORT + EMBEDDED VIDEO + NEWSLETTER SUB
-              ================================================================== */}
+          {/* RIGHT COLUMN: FEATURED REPORT + EMBEDDED VIDEO + NEWSLETTER SUB */}
           <div className="lg:col-span-1 flex flex-col gap-6 lg:sticky lg:top-28">
 
             {/* TOP COMPONENT: Tall Hero Report */}
@@ -193,12 +189,10 @@ function RouteComponent() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/30" />
 
-                {/* Top Meta */}
                 <div className="relative z-10">
                   <span className="label text-signal uppercase tracking-wider font-semibold">Report</span>
                 </div>
 
-                {/* Bottom Overlaid Text & Actions */}
                 <div className="relative z-10 flex flex-col gap-3">
                   <h2 className="text-[28px] font-semibold leading-tight tracking-tight text-white group-hover:text-signal transition-colors">
                     McKinsey Technology Trends Outlook 2026
@@ -287,6 +281,66 @@ function RouteComponent() {
           </div>
 
         </div>
+
+        {/* ==================================================================
+            FEATURED NEWSLETTER BANNER SECTION (Escaped JSX Entities)
+            ================================================================== */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7, ease: EASE }}
+          className="w-full rounded-[8px] overflow-hidden relative shadow-2xl border border-hairline"
+        >
+          <div className="w-full bg-[#131A22] relative overflow-hidden flex flex-col p-8 md:p-14 min-h-[440px] justify-between">
+            {/* Background Image with Gradient Overlay */}
+            <img 
+              src="/placeholder-newsletter-hero.png" 
+              alt="Featured Newsletter" 
+              className="absolute inset-0 w-full h-full object-cover object-center opacity-45"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#0B0F14] via-[#0B0F14]/90 to-transparent" />
+
+            {/* Top Category Header */}
+            <div className="relative z-10">
+              <span className="text-[12px] tracking-[0.2em] uppercase font-semibold text-signal">
+                Featured Newsletter[cite: 4]
+              </span>
+            </div>
+
+            {/* Center Content & Form */}
+            <div className="relative z-10 max-w-[620px] my-6 flex flex-col gap-6">
+              <h2 className="text-[36px] md:text-[46px] font-semibold leading-[1.1] tracking-tight text-white">
+                Insights to navigate what&rsquo;s next <span className="text-signal">&rsaquo;</span>[cite: 4]
+              </h2>
+              <p className="text-[15px] md:text-[16px] text-zinc-300 leading-relaxed">
+                Sharper decisions start with The CEO Shortlist, a bimonthly newsletter of our best ideas for the C-suite[cite: 4].
+              </p>
+
+              {/* Inline Subscribe Form */}
+              <form onSubmit={(e) => e.preventDefault()} className="flex flex-col sm:flex-row gap-3 mt-2 max-w-[500px]">
+                <input 
+                  type="email" 
+                  placeholder="Email address"
+                  className="bg-background/90 backdrop-blur-md border border-hairline rounded-[4px] px-4 py-3 text-[14px] text-foreground placeholder:text-muted-foreground/50 flex-1 focus:outline-none focus:border-signal transition-colors shadow-inner"
+                />
+                <button 
+                  type="submit" 
+                  className="bg-signal text-signal-foreground px-6 py-3 rounded-[4px] font-semibold text-[14px] hover:opacity-90 transition-opacity cursor-pointer shadow-lg whitespace-nowrap"
+                >
+                  Subscribe[cite: 4]
+                </button>
+              </form>
+            </div>
+
+            {/* Bottom Sub-bar or decorative finish */}
+            <div className="relative z-10 flex items-center justify-between pt-4 border-t border-white/10 text-xs text-zinc-400">
+              <span>Bimonthly Executive Briefing</span>
+              <span>Telala C-Suite Editorial</span>
+            </div>
+          </div>
+        </motion.div>
+
       </div>
     </div>
   )
