@@ -6,10 +6,10 @@ const NAV = [
   { label: "What we do", to: "/what-we-do" },
   { label: "Telala OS", to: "/os" },
   { label: "Owners", to: "/owners" },
-  { label: "Reports", to: "/reports" },
   //{ label: "Investors", to: "/investors" },
   { label: "Industry", to: "/industry" },
   { label: "About", to: "/about" },
+  { label: "Reports", to: "/reports" },
 ] as const;
 
 export function Header() {
