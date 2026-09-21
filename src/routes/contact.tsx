@@ -18,6 +18,10 @@ interface FormData {
   capitalInterest: string
   capitalRange: string
   capitalTimeline: string
+  // Aspiring custom fields
+  hasLand: string
+  hasCapital: string
+  timeline: string
   message: string
 }
 
@@ -36,6 +40,9 @@ export function WaitlistPage() {
     capitalInterest: '',
     capitalRange: '',
     capitalTimeline: '',
+    hasLand: '',
+    hasCapital: '',
+    timeline: '',
     message: ''
   })
 
@@ -71,7 +78,7 @@ export function WaitlistPage() {
   return (
     <div className="min-h-screen bg-background text-foreground pb-24 overflow-y-auto">
       
-      {/* ==================================================================
+      {/* =================================================================-
           STICKY PROGRESS BAR
           ================================================================== */}
       <div className="sticky top-0 z-20 bg-background/95 backdrop-blur-sm pt-6 pb-4 border-b border-hairline/40">
@@ -236,6 +243,59 @@ export function WaitlistPage() {
                   />
                 </div>
               </div>
+
+              {/* ASPIRING OWNER SPECIFIC FIELDS */}
+              {selectedAudience === 'aspiring' && (
+                <>
+                  <div className="flex flex-col gap-[7px]">
+                    <label className="text-[13px] font-medium text-foreground">Do you already have land?</label>
+                    <div className="flex flex-wrap gap-2 pt-1">
+                      {['Yes', 'Not yet'].map(opt => (
+                        <button 
+                          type="button" 
+                          key={opt} 
+                          onClick={() => setFormData({...formData, hasLand: opt})} 
+                          className={`border rounded-[4px] px-4 py-2 text-xs transition-colors cursor-pointer ${formData.hasLand === opt ? 'border-signal bg-signal/10 text-foreground' : 'border-hairline bg-card text-muted-foreground'}`}
+                        >
+                          {opt}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="flex flex-col gap-[7px]">
+                    <label className="text-[13px] font-medium text-foreground">Do you have capital to establish it?</label>
+                    <div className="flex flex-wrap gap-2 pt-1">
+                      {['Yes', 'No', 'Partially'].map(opt => (
+                        <button 
+                          type="button" 
+                          key={opt} 
+                          onClick={() => setFormData({...formData, hasCapital: opt})} 
+                          className={`border rounded-[4px] px-4 py-2 text-xs transition-colors cursor-pointer ${formData.hasCapital === opt ? 'border-signal bg-signal/10 text-foreground' : 'border-hairline bg-card text-muted-foreground'}`}
+                        >
+                          {opt}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="flex flex-col gap-[7px]">
+                    <label className="text-[13px] font-medium text-foreground">Timeline</label>
+                    <div className="flex flex-wrap gap-2 pt-1">
+                      {['Ready now', 'Within the year', 'Just exploring'].map(opt => (
+                        <button 
+                          type="button" 
+                          key={opt} 
+                          onClick={() => setFormData({...formData, timeline: opt})} 
+                          className={`border rounded-[4px] px-4 py-2 text-xs transition-colors cursor-pointer ${formData.timeline === opt ? 'border-signal bg-signal/10 text-foreground' : 'border-hairline bg-card text-muted-foreground'}`}
+                        >
+                          {opt}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                </>
+              )}
 
               {selectedAudience === 'owner' && (
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">

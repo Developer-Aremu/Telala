@@ -8,7 +8,7 @@ export const Route = createFileRoute('/reports')({
 
 function RouteComponent() {
   return (
-    <div className="min-h-screen bg-background text-foreground pt-28 pb-24 overflow-y-auto">
+    <div className="min-h-screen bg-gradient-to-b from-[#2d070d] via-[#140507] to-background text-foreground pt-28 pb-24 overflow-y-auto">
       <div className="max-w-[1500px] mx-auto px-6 md:px-10 flex flex-col gap-16">
         
         {/* ==================================================================
@@ -19,28 +19,25 @@ function RouteComponent() {
           {/* LEFT & MIDDLE COLUMNS (span 2 columns using a 2-column sub-masonry grid) */}
           <div className="lg:col-span-2 flex flex-col gap-6">
 
-            {/* TOP BLOCK: Intro / Headline with Sharp Action Button */}
+            {/* TOP BLOCK: Intro / Headline */}
             <motion.div 
               initial={{ opacity: 0, y: 12 }} 
               animate={{ opacity: 1, y: 0 }} 
               transition={{ duration: 0.6, ease: EASE }}
               className="flex items-center justify-between gap-6 py-4"
             >
-              <div className="max-w-[600px] z-10">
+              <div className="max-w-[700px] z-10">
                 <Rise>
-                  <h1 className="beat-lg text-foreground mb-4">
-                    What’s your next brilliant move?
+                  <h1 className="beat-md text-white mb-4">
+                    Insights into plantations around the world and global solutions from TELALA
                   </h1>
                 </Rise>
                 <Rise delay={0.1}>
-                  <p className="text-[15px] leading-[1.6] text-muted-foreground">
-                    Game-changing work. People and AI powering growth. At Telala, we help you think bigger, build stronger, and expand opportunity for all.
+                  <p className="text-[15px] leading-[1.6] text-zinc-200">
+                    Game-changing work. People and AI powering growth. At Telala, we help you think bigger, build stronger, <br />and expand opportunity for all.
                   </p>
                 </Rise>
               </div>
-              
-              {/* Sharp Action Button (Zero roundness, no border, glowing red shadow) */}
-             
             </motion.div>
 
             {/* PINTEREST-STYLE ASYMMETRIC MASONRY SUB-GRID */}
@@ -54,15 +51,15 @@ function RouteComponent() {
                   initial={{ opacity: 0, y: 12 }} 
                   animate={{ opacity: 1, y: 0 }} 
                   transition={{ duration: 0.6, delay: 0.2, ease: EASE }}
-                  className="rounded-none overflow-hidden relative group shadow-lg w-full aspect-square"
+                  className="rounded-none overflow-hidden relative group shadow-lg w-full aspect-square border border-red-900/30"
                 >
-                  <div className="w-full h-full bg-[#1C261E] relative overflow-hidden flex flex-col justify-between p-6">
+                  <div className="w-full h-full bg-[#2a0e12] relative overflow-hidden flex flex-col justify-between p-6">
                     <img 
                       src="/placeholder-video.png" 
                       alt="" 
-                      className="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-700" 
+                      className="absolute inset-0 w-full h-full object-cover opacity-75 group-hover:scale-105 transition-transform duration-700" 
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/50 to-transparent" />
 
                     <div className="relative z-10">
                       <span className="label text-signal uppercase tracking-wider font-semibold">Video</span>
@@ -75,20 +72,20 @@ function RouteComponent() {
                   </div>
                 </motion.div>
 
-                {/* CARD 3: Global Farmer Insights / Report (~1.5x taller) */}
+                {/* CARD 3: Global Farmer Insights / Report */}
                 <motion.div 
                   initial={{ opacity: 0, y: 12 }} 
                   animate={{ opacity: 1, y: 0 }} 
                   transition={{ duration: 0.6, delay: 0.4, ease: EASE }}
-                  className="rounded-none overflow-hidden relative group shadow-lg w-full h-[450px]"
+                  className="rounded-none overflow-hidden relative group shadow-lg w-full h-[450px] border border-red-900/30"
                 >
-                  <div className="w-full h-full bg-[#141B26] relative overflow-hidden flex flex-col justify-between p-6">
+                  <div className="w-full h-full bg-[#240a0e] relative overflow-hidden flex flex-col justify-between p-6">
                     <img 
                       src="/placeholder-farmer.png" 
                       alt="" 
-                      className="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-700" 
+                      className="absolute inset-0 w-full h-full object-cover opacity-75 group-hover:scale-105 transition-transform duration-700" 
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/50 to-transparent" />
 
                     <div className="relative z-10">
                       <span className="label text-signal uppercase tracking-wider font-semibold">Report</span>
@@ -103,23 +100,23 @@ function RouteComponent() {
 
               </div>
 
-              {/* RIGHT SUB-COLUMN: Conversation (~2x taller) & New Video Card */}
+              {/* RIGHT SUB-COLUMN: Conversation & New Video Card */}
               <div className="flex flex-col gap-6">
 
-                {/* CARD 2: Conversation (~2x taller) */}
+                {/* CARD 2: Conversation */}
                 <motion.div 
                   initial={{ opacity: 0, y: 12 }} 
                   animate={{ opacity: 1, y: 0 }} 
                   transition={{ duration: 0.6, delay: 0.3, ease: EASE }}
-                  className="rounded-none overflow-hidden relative group shadow-lg w-full h-[600px]"
+                  className="rounded-none overflow-hidden relative group shadow-lg w-full h-[600px] border border-red-900/30"
                 >
-                  <div className="w-full h-full bg-[#1E222A] relative overflow-hidden flex flex-col justify-between p-8">
+                  <div className="w-full h-full bg-[#320f14] relative overflow-hidden flex flex-col justify-between p-8">
                     <img 
                       src="/placeholder-conversation.png" 
                       alt="" 
-                      className="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-700" 
+                      className="absolute inset-0 w-full h-full object-cover opacity-75 group-hover:scale-105 transition-transform duration-700" 
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/60 to-transparent" />
 
                     <div className="relative z-10">
                       <span className="label text-signal uppercase tracking-wider font-semibold">Conversation</span>
@@ -137,15 +134,15 @@ function RouteComponent() {
                   initial={{ opacity: 0, y: 12 }} 
                   animate={{ opacity: 1, y: 0 }} 
                   transition={{ duration: 0.6, delay: 0.5, ease: EASE }}
-                  className="rounded-none overflow-hidden relative group shadow-lg w-full h-[300px]"
+                  className="rounded-none overflow-hidden relative group shadow-lg w-full h-[300px] border border-red-900/30"
                 >
-                  <div className="w-full h-full bg-[#18231C] relative overflow-hidden flex flex-col justify-between p-6">
+                  <div className="w-full h-full bg-[#260b0f] relative overflow-hidden flex flex-col justify-between p-6">
                     <img 
                       src="/placeholder-video-secondary.png" 
                       alt="" 
-                      className="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-700" 
+                      className="absolute inset-0 w-full h-full object-cover opacity-75 group-hover:scale-105 transition-transform duration-700" 
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/50 to-transparent" />
 
                     <div className="relative z-10">
                       <span className="label text-signal uppercase tracking-wider font-semibold">Video Briefing</span>
@@ -171,15 +168,15 @@ function RouteComponent() {
               initial={{ opacity: 0, y: 12 }} 
               animate={{ opacity: 1, y: 0 }} 
               transition={{ duration: 0.6, delay: 0.1, ease: EASE }}
-              className="rounded-none overflow-hidden relative group shadow-lg"
+              className="rounded-none overflow-hidden relative group shadow-lg border border-red-900/30"
             >
-              <div className="w-full h-[520px] bg-[#16202B] relative overflow-hidden flex flex-col justify-between p-8">
+              <div className="w-full h-[520px] bg-[#2d0d12] relative overflow-hidden flex flex-col justify-between p-8">
                 <img 
                   src="/placeholder-report.png" 
                   alt="" 
-                  className="absolute inset-0 w-full h-full object-cover opacity-85 group-hover:scale-105 transition-transform duration-700" 
+                  className="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-700" 
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/30" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/60 to-black/30" />
 
                 <div className="relative z-10">
                   <span className="label text-signal uppercase tracking-wider font-semibold">Report</span>
@@ -189,13 +186,13 @@ function RouteComponent() {
                   <h2 className="text-[28px] font-semibold leading-tight tracking-tight text-white group-hover:text-signal transition-colors">
                     McKinsey Technology Trends Outlook 2026
                   </h2>
-                  <p className="text-[13px] text-zinc-300 leading-relaxed">
+                  <p className="text-[13px] text-zinc-200 leading-relaxed">
                     Discover how groundbreaking technology shifts are redefining enterprise capabilities and sustainable long-term growth.
                   </p>
                   <div>
                     <a 
                       href="#" 
-                      className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 text-white px-4 py-2 rounded-none text-[12px] font-medium hover:bg-signal hover:text-signal-foreground hover:border-signal transition-colors"
+                      className="inline-flex items-center gap-2 bg-white/15 backdrop-blur-md border border-white/30 text-white px-4 py-2 rounded-none text-[12px] font-medium hover:bg-signal hover:text-signal-foreground hover:border-signal transition-colors"
                     >
                       Read the report →
                     </a>
@@ -209,15 +206,15 @@ function RouteComponent() {
               initial={{ opacity: 0, y: 12 }} 
               animate={{ opacity: 1, y: 0 }} 
               transition={{ duration: 0.6, delay: 0.2, ease: EASE }}
-              className="rounded-none overflow-hidden relative group shadow-lg"
+              className="rounded-none overflow-hidden relative group shadow-lg border border-red-900/30"
             >
-              <div className="w-full h-[220px] bg-[#1C2026] relative overflow-hidden flex flex-col justify-between p-6">
+              <div className="w-full h-[220px] bg-[#290c10] relative overflow-hidden flex flex-col justify-between p-6">
                 <img 
                   src="/placeholder-video.png" 
                   alt="" 
-                  className="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-700" 
+                  className="absolute inset-0 w-full h-full object-cover opacity-75 group-hover:scale-105 transition-transform duration-700" 
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/50 to-transparent" />
 
                 <div className="relative z-10">
                   <span className="label text-signal uppercase tracking-wider font-semibold">Video</span>
@@ -235,10 +232,10 @@ function RouteComponent() {
               initial={{ opacity: 0, y: 12 }} 
               animate={{ opacity: 1, y: 0 }} 
               transition={{ duration: 0.6, delay: 0.3, ease: EASE }}
-              className="bg-card border border-hairline rounded-none p-6 flex flex-col justify-between shadow-lg"
+              className="bg-[#20080b] border border-red-900/30 rounded-none p-6 flex flex-col justify-between shadow-lg"
             >
               <div>
-                <h3 className="text-[18px] font-semibold leading-tight tracking-tight text-foreground mb-3">
+                <h3 className="text-[18px] font-semibold leading-tight tracking-tight text-white mb-3">
                   Subscribe to the latest Telala Insights on the topics you care about.
                 </h3>
               </div>
@@ -247,7 +244,7 @@ function RouteComponent() {
                   <input 
                     type="email" 
                     placeholder="Email address" 
-                    className="bg-background border border-hairline rounded-none px-3 py-2 text-[13px] text-foreground placeholder:text-muted-foreground/40 flex-1 focus:outline-none focus:border-signal transition-colors"
+                    className="bg-[#140507] border border-red-900/40 rounded-none px-3 py-2 text-[13px] text-white placeholder:text-zinc-400 flex-1 focus:outline-none focus:border-signal transition-colors"
                   />
                   <button 
                     type="submit" 
@@ -257,13 +254,13 @@ function RouteComponent() {
                   </button>
                 </form>
                 <div className="text-center my-3">
-                  <span className="text-[11px] text-muted-foreground relative px-2 bg-card">Or continue with</span>
+                  <span className="text-[11px] text-zinc-300 relative px-2 bg-[#20080b]">Or continue with</span>
                 </div>
                 <div className="grid grid-cols-2 gap-2">
-                  <button type="button" className="border border-hairline rounded-none py-2 text-[11px] font-medium text-foreground hover:border-signal transition-colors cursor-pointer">
+                  <button type="button" className="border border-red-900/40 rounded-none py-2 text-[11px] font-medium text-white hover:border-signal transition-colors cursor-pointer bg-[#140507]">
                     Google
                   </button>
-                  <button type="button" className="border border-hairline rounded-none py-2 text-[11px] font-medium text-foreground hover:border-signal transition-colors cursor-pointer">
+                  <button type="button" className="border border-red-900/40 rounded-none py-2 text-[11px] font-medium text-white hover:border-signal transition-colors cursor-pointer bg-[#140507]">
                     LinkedIn
                   </button>
                 </div>
@@ -282,16 +279,16 @@ function RouteComponent() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7, ease: EASE }}
-          className="w-full rounded-none overflow-hidden relative shadow-2xl border border-hairline"
+          className="w-full rounded-none overflow-hidden relative shadow-2xl border border-red-900/30"
         >
-          <div className="w-full bg-[#131A22] relative overflow-hidden flex flex-col p-8 md:p-14 min-h-[440px] justify-between">
+          <div className="w-full bg-gradient-to-br from-[#30090f] via-[#1a0507] to-[#0f0204] relative overflow-hidden flex flex-col p-8 md:p-14 min-h-[440px] justify-between">
             {/* Background Image with Gradient Overlay */}
             <img 
               src="/placeholder-newsletter-hero.png" 
               alt="Featured Newsletter" 
-              className="absolute inset-0 w-full h-full object-cover object-center opacity-45"
+              className="absolute inset-0 w-full h-full object-cover object-center opacity-40"
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-[#0B0F14] via-[#0B0F14]/90 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#140507] via-[#140507]/90 to-transparent" />
 
             {/* Top Category Header */}
             <div className="relative z-10">
@@ -305,7 +302,7 @@ function RouteComponent() {
               <h2 className="text-[36px] md:text-[46px] font-semibold leading-[1.1] tracking-tight text-white">
                 Insights to navigate what&rsquo;s next <span className="text-signal">&rsaquo;</span>
               </h2>
-              <p className="text-[15px] md:text-[16px] text-zinc-300 leading-relaxed">
+              <p className="text-[15px] md:text-[16px] text-zinc-200 leading-relaxed">
                 Sharper decisions start with The CEO Shortlist, a bimonthly newsletter of our best ideas for the C-suite.
               </p>
 
@@ -314,7 +311,7 @@ function RouteComponent() {
                 <input 
                   type="email" 
                   placeholder="Email address"
-                  className="bg-background/90 backdrop-blur-md border border-hairline rounded-none px-4 py-3 text-[14px] text-foreground placeholder:text-muted-foreground/50 flex-1 focus:outline-none focus:border-signal transition-colors shadow-inner"
+                  className="bg-[#140507]/90 backdrop-blur-md border border-red-900/40 rounded-none px-4 py-3 text-[14px] text-white placeholder:text-zinc-400 flex-1 focus:outline-none focus:border-signal transition-colors shadow-inner"
                 />
                 <button 
                   type="submit" 
@@ -325,8 +322,8 @@ function RouteComponent() {
               </form>
             </div>
 
-            {/* Bottom Sub-bar or decorative finish */}
-            <div className="relative z-10 flex items-center justify-between pt-4 border-t border-white/10 text-xs text-zinc-400">
+            {/* Bottom Sub-bar */}
+            <div className="relative z-10 flex items-center justify-between pt-4 border-t border-white/15 text-xs text-zinc-300">
               <span>Bimonthly Executive Briefing</span>
               <span>Telala C-Suite Editorial</span>
             </div>
