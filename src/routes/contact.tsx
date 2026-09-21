@@ -18,7 +18,6 @@ interface FormData {
   capitalInterest: string
   capitalRange: string
   capitalTimeline: string
-  // Aspiring custom fields
   hasLand: string
   hasCapital: string
   timeline: string
@@ -79,28 +78,72 @@ export function WaitlistPage() {
     <div className="min-h-screen bg-background text-foreground pb-24 overflow-y-auto">
       
       {/* =================================================================-
-          STICKY PROGRESS BAR
+          STICKY STEPPER PROGRESS BAR (Properly Clears Fixed Nav)
           ================================================================== */}
-      <div className="sticky top-0 z-20 bg-background/95 backdrop-blur-sm pt-6 pb-4 border-b border-hairline/40">
-        <div className="flex items-center gap-3 max-w-[720px] mx-auto px-6">
-          {/* Step 1 Node & Line */}
-          <div className="flex-1 flex items-center gap-3">
-            <div className={`w-2 h-2 rounded-full transition-all ${currentStep >= 1 ? 'bg-signal' : 'bg-[#2A2620]'}`} />
-            <div className={`flex-1 h-[1px] transition-all ${currentStep > 1 ? 'bg-signal' : 'bg-hairline'}`} />
-          </div>
-          
-          {/* Step 2 Node & Line */}
-          <div className="flex-1 flex items-center gap-3">
-            <div className={`w-2 h-2 rounded-full transition-all ${currentStep >= 2 ? 'bg-signal' : 'bg-[#2A2620]'}`} />
-            <div className={`flex-1 h-[1px] transition-all ${currentStep > 2 ? 'bg-signal' : 'bg-hairline'}`} />
-          </div>
+      <div className="sticky top-20 z-20 bg-background/95 backdrop-blur-sm py-5 border-b border-hairline/40">
+        <div className="max-w-[720px] mx-auto px-6">
+          <div className="flex items-center justify-between relative">
+            {/* Connecting Track Line behind dots */}
+            <div className="absolute left-0 right-0 top-1/2 -translate-y-1/2 h-[1px] bg-hairline z-0" />
+            
+            {/* Step 1 Node: Role */}
+            <button 
+              type="button"
+              onClick={() => setCurrentStep(1)}
+              className="relative z-10 flex items-center gap-2.5 bg-background pr-2 cursor-pointer group"
+            >
+              <div className={`w-3.5 h-3.5 rounded-full border flex items-center justify-center transition-all ${
+                currentStep > 1 || selectedAudience
+                  ? 'border-signal bg-signal/20 text-signal shadow-[0_0_10px_rgba(239,68,68,0.25)]' 
+                  : currentStep === 1 
+                  ? 'border-signal bg-signal text-background font-bold' 
+                  : 'border-hairline bg-card text-muted-foreground'
+              }`}>
+                {(currentStep > 1 || selectedAudience) && <span className="text-[9px] font-bold">✓</span>}
+              </div>
+              <span className={`text-[13px] font-medium transition-colors ${currentStep === 1 ? 'text-foreground' : 'text-muted-foreground group-hover:text-foreground'}`}>
+                Role
+              </span>
+            </button>
 
-          {/* Step 3 Node */}
-          <div className={`w-2 h-2 rounded-full transition-all ${currentStep >= 3 ? 'bg-signal' : 'bg-[#2A2620]'}`} />
+            {/* Step 2 Node: Details */}
+            <button 
+              type="button"
+              onClick={() => selectedAudience && setCurrentStep(2)}
+              disabled={!selectedAudience && currentStep < 2}
+              className={`relative z-10 flex items-center gap-2.5 bg-background px-2 transition-all ${!selectedAudience && currentStep < 2 ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer group'}`}
+            >
+              <div className={`w-3.5 h-3.5 rounded-full border flex items-center justify-center transition-all ${
+                currentStep > 2 
+                  ? 'border-signal bg-signal/20 text-signal shadow-[0_0_10px_rgba(239,68,68,0.25)]' 
+                  : currentStep === 2 
+                  ? 'border-signal bg-signal text-background font-bold' 
+                  : 'border-hairline bg-card text-muted-foreground'
+              }`}>
+                {currentStep > 2 && <span className="text-[9px] font-bold">✓</span>}
+              </div>
+              <span className={`text-[13px] font-medium transition-colors ${currentStep === 2 ? 'text-foreground' : 'text-muted-foreground group-hover:text-foreground'}`}>
+                Details
+              </span>
+            </button>
+
+            {/* Step 3 Node: Confirmation */}
+            <div className="relative z-10 flex items-center gap-2.5 bg-background pl-2">
+              <div className={`w-3.5 h-3.5 rounded-full border flex items-center justify-center transition-all ${
+                currentStep === 3 
+                  ? 'border-signal bg-signal text-background font-bold shadow-[0_0_10px_rgba(239,68,68,0.25)]' 
+                  : 'border-hairline bg-card text-muted-foreground'
+              }`} />
+              <span className={`text-[13px] font-medium transition-colors ${currentStep === 3 ? 'text-foreground' : 'text-muted-foreground'}`}>
+                Confirmation
+              </span>
+            </div>
+          </div>
         </div>
       </div>
 
-      <div className="max-w-[960px] mx-auto px-6 pt-8">
+      {/* Increased top padding (`pt-28`) so content starts well below the sticky stepper */}
+      <div className="max-w-[960px] mx-auto px-6 pt-28">
         {/* ------------------------------------------------------------------
             STEP 1: AUDIENCE SELECTION CARDS
             ------------------------------------------------------------------ */}
