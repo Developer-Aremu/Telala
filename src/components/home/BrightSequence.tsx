@@ -115,66 +115,7 @@ export function BeatSystemGlimpsed() {
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
   const y = useTransform(scrollYProgress, [0, 1], [40, -40]);
 
-  return (
-    <section ref={ref} className="border-t border-hairline bg-secondary py-24 md:py-32">
-      <div className="mx-auto grid max-w-[1600px] gap-16 px-5 md:grid-cols-[1fr_1.1fr] md:px-10">
-        <div className="flex flex-col justify-center gap-8">
-          <Rise>
-            <p className="label text-signal">The system</p>
-          </Rise>
-          <Rise delay={0.1}>
-            <h2 className="beat-lg max-w-[18ch]">
-              Every harvest. Every transfer. Every hand that touches your land.
-            </h2>
-          </Rise>
-          <Rise delay={0.2}>
-            <p className="quiet">
-              Logged the moment it happens — not summarized days later. A verified chain of custody
-              confirms what's reported is what's real. Discrepancies surface immediately.
-            </p>
-          </Rise>
-          <Rise delay={0.3}>
-            <p className="beat-md">Reporting looks back. Telala looks forward.</p>
-          </Rise>
-        </div>
 
-        <motion.div style={{ y }} className="relative">
-          <div className="border border-hairline bg-card shadow-[0_40px_120px_-60px_rgba(0,0,0,0.5)]">
-            <div className="flex items-center justify-between border-b border-hairline px-5 py-4">
-              <span className="label">Telala OS · Live</span>
-              <span className="flex items-center gap-2">
-                <span
-                  className="block size-1.5 rounded-full bg-signal"
-                  style={{ animation: "signal-pulse 2.4s ease-out infinite" }}
-                />
-                <span className="label text-muted-foreground">Estate 04</span>
-              </span>
-            </div>
-
-            <div className="relative h-52 border-b border-hairline bg-background">
-              <PulseMap />
-            </div>
-
-            <ul className="divide-y divide-border">
-              {FEED.map((row, i) => (
-                <motion.li
-                  key={row.time}
-                  className="flex items-center justify-between gap-6 px-5 py-4"
-                  initial={{ opacity: 0, x: -12 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true, amount: 0.4 }}
-                  transition={{ duration: 0.6, delay: 0.3 + i * 0.35, ease: EASE }}
-                >
-                  <span className="label text-muted-foreground">{row.time}</span>
-                  <span className="flex-1 text-sm">{row.text}</span>
-                </motion.li>
-              ))}
-            </ul>
-          </div>
-        </motion.div>
-      </div>
-    </section>
-  );
 }
 
 function PulseMap() {
@@ -229,14 +170,14 @@ export function BeatBeforeAfter() {
         >
           <p className="label text-ink-muted">Before</p>
           <p className="beat-md mt-6 max-w-[16ch] text-ink-foreground/70">
-            A phone call, days later, once it's too late to matter.
+            A phone call days later, long after the damage is done.
           </p>
         </motion.div>
 
         <div className="relative flex flex-1 flex-col justify-center bg-background px-5 py-16 md:px-10">
           <p className="label text-signal">After</p>
           <p className="beat-md mt-6 max-w-[18ch]">
-            You already knew — often before it became a problem at all.
+            An immediate signal to act, long before a delay costs you money
           </p>
           <motion.span
             className="mt-10 block size-2 bg-signal"

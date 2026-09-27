@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { PageHero, Section, ActionLink } from "@/components/site/PageShell";
 import { Rise } from "@/components/site/motion-primitives";
 
-const TITLE = "The Opportunity — Telala";
+const TITLE = "The Industry — Telala";
 
 export const Route = createFileRoute("/industry")({
   head: () => ({ meta: [{ title: TITLE }] }),
@@ -32,9 +32,9 @@ function Industry() {
   return (
     <>
       <PageHero
-        thread="The Opportunity"
-        title="Build the infrastructure for world-class production."
-        lead="Africa has 33% of the world's suitable oil-palm growing land and produces only 4.2% of the global palm oil supply. The opportunity was never the land. It's everything that has to be built around it."
+        thread="The Industry"
+        title="33% of the world's most suitable oil-palm land is in Africa. We produce 4.2% of the world's supply."
+        lead="Africa has 33% of the world's suitable oil-palm growing land and produces only 4.2% of the global palm oil supply. But that number hides a critical reality: plantations are expanding, and processing capacity isn't keeping up."
       />
 
       <Section>
@@ -62,19 +62,19 @@ function Industry() {
         <div className="grid gap-14 md:grid-cols-3">
           {[
             [
-              "The gap",
-              "The opportunity is large. The operating infrastructure is not.",
-              "Oil palm is rooted in Africa — the land, the climate, and the people required to participate fully in this industry all already exist here. What's missing isn't potential. It's the systems between land and market: establishment done right, field operations run with discipline, processing capacity, and the capital to connect all of it.",
+              "The rot",
+              "Fruit is being harvested with nowhere built to receive it.",
+              "Palm fruit that isn't processed within hours of harvest doesn't wait for capacity to catch up. It just spoils. That's not a future risk. That's happening on the ground today, on plantations already producing.",
             ],
             [
-              "Productive assets",
-              "A plantation is a long-life asset. Most aren't treated like one.",
-              "Too much planted land in this industry is exactly that — planted, and little else. We build and improve plantations as operating assets meant to produce for decades, not areas of land that happen to have palms on them.",
+              "The extraction gap",
+              "What doesn't spoil often isn't processed properly either.",
+              "Without real refining capacity nearby, fruit ends up in small hand presses and informal local mills never built for industrial output — equipment that recovers a fraction of what the fruit is actually worth. The oil gets extracted. The value doesn't.",
             ],
             [
-              "Operating systems",
-              "Performance you can repeat is performance you can plan around.",
-              "A good harvest once isn't an operating system. Repeatable performance requires management capability and information infrastructure — the ability to see what's working, fix what isn't, and do it again next season with the same discipline.",
+              "The double cost",
+              "Every hectare planted without capacity is a bet that costs twice.",
+              "Planting without real processing infrastructure costs you two ways: what rots in the field, and what gets processed for far less than it's worth. Capacity built now protects a harvest that's already growing.",
             ],
           ].map(([k, h, b], i) => (
             <Rise key={k} delay={i * 0.1}>
@@ -88,15 +88,12 @@ function Industry() {
 
       <Section>
         <Rise>
-          <p className="label text-signal">Connected capacity</p>
-          <h2 className="beat-lg mt-6 max-w-[18ch]">
-            A plantation is only as valuable as what it connects to.
+          <p className="label text-signal">Infrastructure response</p>
+          <h2 className="beat-lg mt-6 max-w-[20ch]">
+            Mills. Refineries. Capacity sized to match planting.
           </h2>
           <p className="quiet mt-7 max-w-[72ch]">
-            Output means little without processing to receive it and a market
-            connected to that processing. We build with the full chain in mind —
-            plantation, processing, and market — because strength in one link
-            doesn't matter if the others are weak.
+            This is the arm of Telala built to close that gap. Processing infrastructure sized to match planting as it happens — not years behind it, and not handed off to equipment that was never built for this scale. The fruit already exists. The demand already exists. What's missing is capacity built to actually capture what's there.
           </p>
         </Rise>
       </Section>
@@ -123,12 +120,10 @@ function Industry() {
         <Rise>
           <h2 className="beat-lg">Build the industry with us.</h2>
           <p className="quiet mt-7 max-w-[75ch]">
-            Telala works at the intersection of plantation operations,
-            technology, and industrial development. However you fit — owner,
-            operator, investor, or partner — there's a place to start.
+            Capacity built now protects a harvest that's already growing and the market waiting for it. However you fit — owner, operator, investor, or partner — there's a place to start.
           </p>
           <div className="mt-10 flex flex-wrap gap-4">
-            <ActionLink to="/contact">Work with Telala</ActionLink>
+            <ActionLink to="/contact">Talk to us</ActionLink>
             <ActionLink to="/what-we-do" tone="line">
               Explore the value chain
             </ActionLink>

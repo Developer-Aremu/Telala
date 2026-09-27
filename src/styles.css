@@ -1,5 +1,4 @@
-@import "tailwindcss" source(none);
-@source "../src";
+@import "tailwindcss";
 
 /*
  * TELALA design system.
@@ -137,37 +136,4 @@
   line-height: 1.65;
   color: var(--muted-foreground);
   max-width: 46ch;
-}
-
-@keyframes signal-pulse {
-  0%,
-  100% {
-    box-shadow: 0 0 0 0 color-mix(in oklab, var(--signal) 45%, transparent);
-  }
-  50% {
-    box-shadow: 0 0 0 14px color-mix(in oklab, var(--signal) 0%, transparent);
-  }
-}
-
-@keyframes node-loop {
-  0%,
-  100% {
-    opacity: 0.18;
-  }
-  12% {
-    opacity: 1;
-  }
-  30% {
-    opacity: 0.18;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.001ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.001ms !important;
-  }
 }

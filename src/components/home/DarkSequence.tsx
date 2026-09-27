@@ -45,14 +45,34 @@ export function BeatHero() {
           <h1 className="beat-xl max-w-[16ch] text-ink-foreground">
             <WordsIn text="Building Africa's Oil Palm Industry" delay={0.35} stagger={0.16} />
           </h1>
+          
+          {/* Scroll Text Animation Container */}
           <motion.div
-            className="mt-10 flex items-center gap-3"
+            className="mt-10 flex items-center gap-3 overflow-hidden py-2"
             initial={reduced ? false : { opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 2.4, duration: 1.2 }}
           >
-            <span className="label text-ink-muted">Scroll</span>
-            <span className="block h-px w-16 bg-ink-muted/50" />
+            <motion.div
+              className="flex items-center gap-3"
+              animate={
+                reduced
+                  ? {}
+                  : {
+                      y: [70, 0, 0, -70, 70],
+                      opacity: [0, 1, 1, 0, 0],
+                    }
+              }
+              transition={{
+                duration: 3.2,
+                repeat: Infinity,
+                times: [0, 0.3, 0.7, 0.95, 1],
+                ease: "easeInOut",
+              }}
+            >
+              <span className="label text-ink-muted">Scroll</span>
+              <span className="block h-px w-16 bg-ink-muted/50" />
+            </motion.div>
           </motion.div>
         </motion.div>
       </div>
@@ -94,7 +114,7 @@ export function BeatLeak() {
           viewport={{ once: true, amount: 0.6 }}
           transition={{ duration: 1.2, delay: 1.1, ease: EASE }}
         >
-          You don't know where.
+          You just don't know where.
         </motion.p>
       </div>
     </section>
@@ -103,7 +123,7 @@ export function BeatLeak() {
 
 const TYPEWRITER_PARAGRAPHS = [
   "It's not your land.",
-  "It's not your trees.",
+  "It’s not your crops.",
   "It's not your people.",
 ];
 
@@ -121,8 +141,8 @@ export function BeatFlicker() {
 
     const fullText = TYPEWRITER_PARAGRAPHS[currentParagraphIndex] ?? "";
     const typingSpeed = 32; 
-    const pauseTime = 2500; // Pause when a single paragraph is fully shown
-    const cyclePauseTime = 4000; // 6-second blank screen pause after all paragraphs finish
+    const pauseTime = 2500; 
+    const cyclePauseTime = 0; 
 
     let timer: NodeJS.Timeout;
 
@@ -202,7 +222,7 @@ export function BeatPause() {
             viewport={{ once: true, amount: 0.5 }}
             transition={{ duration: 1.4 }}
           >
-            If it isn't the land, the trees, or the people —
+            If it isn't the land, the crops, or the people 
           </motion.p>
           <motion.h2
             className="beat-xl mt-8 text-ink-foreground"
@@ -211,7 +231,7 @@ export function BeatPause() {
             viewport={{ once: true, amount: 0.5 }}
             transition={{ duration: 1.6, delay: 0.7, ease: EASE }}
           >
-            Where is it?
+            Where is it, <br /> then?
           </motion.h2>
         </div>
       </div>
@@ -346,7 +366,7 @@ export function BeatSpotlight() {
           viewport={{ once: true, amount: 0.5 }}
           transition={{ duration: 1, delay: 0.6 }}
         >
-          Who touched what. What was harvested. What was lost.
+          Who touched what? What was harvested? What was lost?
         </motion.p>
         <motion.p
           className="mt-6 max-w-[46ch] font-mono text-sm text-ink-muted/80"
@@ -355,7 +375,7 @@ export function BeatSpotlight() {
           viewport={{ once: true, amount: 0.5 }}
           transition={{ duration: 1, delay: 1.1 }}
         >
-          (if you can't answer that, you don't have a plantation — you have a hope.)
+          If you can't answer these, you don't run a plantation — you run on hope
         </motion.p>
       </div>
     </section>

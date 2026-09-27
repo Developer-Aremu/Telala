@@ -25,11 +25,14 @@ function About() {
     <>
       <PageHero
         thread="This is why."
-        title="The biggest losses on a plantation are rarely hidden on purpose."
+        title="We Collaborate."
+        body="If you want to work with us, and you can see we automatically want to work with you."
       />
       <Section>
         <Rise>
-          <h2 className="beat-lg max-w-[18ch]">They're just never seen.</h2>
+          <h2 className="quiet mt-8">If you want to work with us, and we can see we
+automatically want to work with you.
+</h2>
         </Rise>
         <Rise delay={0.15}>
           <p className="quiet mt-8">Telala exists to make sure they are.</p>

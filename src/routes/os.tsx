@@ -3,6 +3,7 @@ import { useState } from "react";
 import { PageHero, Section, ActionLink } from "@/components/site/PageShell";
 import { Rise } from "@/components/site/motion-primitives";
 import { BeatSystemGlimpsed } from "@/components/home/BrightSequence";
+import canopyDay from "@/assets/canopy-day.jpg";
 
 const TITLE = "Telala OS — See the Plantation";
 
@@ -59,36 +60,142 @@ function Accordion() {
 
 function TelalaOS() {
   const [split, setSplit] = useState(50);
+  const [activeCard, setActiveCard] = useState<"A" | "B">("A");
 
   return (
     <>
-      <section className="border-b border-hairline bg-ink pb-20 pt-36 text-ink-foreground md:pb-28 md:pt-44">
-        <div className="mx-auto grid max-w-[1600px] gap-12 px-5 md:px-10 lg:grid-cols-[1.1fr_.9fr] lg:items-end">
+      {/* Hero Section */}
+      <section className="border-b border-hairline pb-20 pt-36 text-ink-foreground md:pb-28 md:pt-44">
+        <div className="mx-auto max-w-[1600px] px-5 md:px-10">
           <div>
             <Rise>
               <p className="label text-signal">Telala OS</p>
             </Rise>
             <Rise delay={0.1}>
-              <h1 className="beat-lg mt-8 max-w-[18ch]">
-                See the plantation. Run it from anywhere in the world.
+              <h1 className="beat-lg mt-8 max-w-[23ch] text-black">
+                Something is disappearing from your plantation. You just don't know what, or where, yet.
               </h1>
             </Rise>
-            <Rise delay={0.2}>
-              <p className="quiet mt-8 max-w-[62ch] text-ink-muted">
-                Telala OS connects you with what's actually happening on the ground — in real time, not in retrospect.
-              </p>
-            </Rise>
           </div>
+          
           <Rise delay={0.3}>
-            <div className="border border-white/15 bg-white/5 p-5">
-              <p className="label mb-4 text-signal">Live estate</p>
-              {/* @ts-expect-error loop property accepted by underlying component */}
-              <BeatSystemGlimpsed loop={true} />
+            <div className="relative mt-12 h-[450px] w-full overflow-hidden">
+              <img
+                src={canopyDay}
+                alt="Oil palm canopy in full daylight"
+                className="absolute inset-0 size-full object-cover"
+              />
+              <div className="absolute inset-0 bg-ink/20" />
             </div>
           </Rise>
         </div>
       </section>
 
+      {/* Feature 1: The Problem This Solves (Two-column layout with 60/40 split and blur image handling) */}
+      <Section>
+        <div className="w-full">
+          {/* Header block spanning full width or matching context */}
+          
+
+          {/* Cards Container: 60% / 40% Dynamic Split Layout */}
+          <Rise delay={0.15}>
+            <div className="mt-12 flex w-full flex-col gap-6 lg:flex-row lg:items-stretch">
+              {/* Card A */}
+              <div
+                key="card-a"
+                onClick={() => setActiveCard("A")}
+                style={{ flex: activeCard === "A" ? "3 1 0%" : "2 1 0%" }}
+                className="group relative cursor-pointer overflow-hidden rounded-2xl border border-hairline p-8 md:p-12 transition-all duration-500 ease-in-out hover:border-signal/50 text-white"
+              >
+                {/* Background Image with Conditional Blur */}
+                <img
+                  src={canopyDay}
+                  alt="Canopy background"
+                  className={`absolute inset-0 size-full object-cover transition-all duration-700 ${
+                    activeCard === "A" ? "filter-none scale-100" : "blur-md scale-105"
+                  }`}
+                />
+                <div className={`absolute inset-0 transition-colors duration-500 ${activeCard === "A" ? "bg-ink/60" : "bg-ink/80"}`} />
+
+                {/* Content */}
+                <div className="relative z-10 flex h-full flex-col justify-between">
+                  <div>
+                    <p className="label text-signal">A</p>
+                    <h3 className="beat-md mt-4 text-white">
+                      The manager who was never lying
+                    </h3>
+                    
+                    <div
+                      className={`grid transition-all duration-500 ease-in-out ${
+                        activeCard === "A" ? "grid-rows-[1fr] opacity-100 mt-6" : "grid-rows-[0fr] opacity-0 mt-0"
+                      }`}
+                    >
+                      <div className="overflow-hidden">
+                        <p className="text-white/90 text-sm leading-relaxed">
+                          Every week, the report says the harvest was good. The transport logs check out. The numbers on the page are consistent, tidy, believable. And still, somehow, the plantation is producing less than the land says it should. <br/> <br/> Nobody's lying. That's what makes it dangerous. A field officer under-reports a load by a fraction — not theft, just convenience. A driver takes a longer route and nobody asks why. A ledger gets "cleaned up" before it reaches you. None of it looks like a crime. All of it adds up to one.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="mt-8 flex items-center gap-2 font-mono text-xs text-signal">
+                    <span>{activeCard === "A" ? "Expanded view" : "Click to expand"}</span>
+                    <span>→</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Card B */}
+              <div
+                key="card-b"
+                onClick={() => setActiveCard("B")}
+                style={{ flex: activeCard === "B" ? "3 1 0%" : "2 1 0%" }}
+                className="group relative cursor-pointer overflow-hidden rounded-2xl border border-hairline p-8 md:p-12 transition-all duration-500 ease-in-out hover:border-signal/50 text-white"
+              >
+                {/* Background Image with Conditional Blur */}
+                <img
+                  src={canopyDay}
+                  alt="Canopy background"
+                  className={`absolute inset-0 size-full object-cover transition-all duration-700 ${
+                    activeCard === "B" ? "filter-none scale-100" : "blur-md scale-105"
+                  }`}
+                />
+                <div className={`absolute inset-0 transition-colors duration-500 ${activeCard === "B" ? "bg-ink/60" : "bg-ink/80"}`} />
+
+                {/* Content */}
+                <div className="relative z-10 flex h-full flex-col justify-between">
+                  <div>
+                    <p className="label text-signal">B</p>
+                    <h3 className="beat-md mt-4 text-white">
+                      The theft you can't see is the only kind that survives
+                    </h3>
+                    
+                    <div
+                      className={`grid transition-all duration-500 ease-in-out ${
+                        activeCard === "B" ? "grid-rows-[1fr] opacity-100 mt-6" : "grid-rows-[0fr] opacity-0 mt-0"
+                      }`}
+                    >
+                      <div className="overflow-hidden">
+                        <p className="text-white/90 text-sm leading-relaxed">
+                          It looks like a normal Tuesday. A weight that's slightly off. A transfer that took forty extra minutes with no explanation. A block that's harvested but never shows up at the mill in full.<br /><br />
+                          Untraceable isn't a description of how much is lost. It's a description of why you'll never know.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="mt-8 flex items-center gap-2 font-mono text-xs text-signal">
+                    <span>{activeCard === "B" ? "Expanded view" : "Click to expand"}</span>
+                    <span>→</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </Rise>
+        </div>
+      </Section>
+      
+      {/* Interactive Slider Section */}
       <Section>
         <Rise>
           <p className="label text-signal">The problem this solves</p>
@@ -100,7 +207,7 @@ function TelalaOS() {
           </p>
         </Rise>
         <Rise delay={0.15}>
-          <div className="relative mt-12 h-[420px] overflow-hidden border border-hairline bg-card">
+          <div className="relative mt-12 h-[420px] overflow-hidden rounded-2xl border border-hairline bg-card">
             <div className="absolute inset-0 grid grid-cols-2">
               <div className="p-8">
                 <p className="label text-signal">Before</p>
@@ -137,70 +244,69 @@ function TelalaOS() {
         </Rise>
       </Section>
 
+      {/* Feature 2: Field Activity */}
       <Section>
-        <div className="grid gap-14 md:grid-cols-2">
-          <Rise>
-            <p className="label text-signal">Field Activity</p>
-            <h2 className="beat-lg mt-6 max-w-[17ch]">
-              What was planned. What actually happened. Connected.
-            </h2>
-            <p className="quiet mt-7">
-              Work orders, field completions, the people who did the work, and the outcome that resulted — all tied to the specific place they happened. Not four disconnected records. One thread, from instruction to outcome.
-            </p>
-          </Rise>
-          <Rise delay={0.15}>
-            <div className="border border-hairline bg-card p-7">
-              <p className="label text-signal">Work order · Complete</p>
-              <div className="mt-8 space-y-5 font-mono text-sm">
-                <p>Worker · F-0184</p>
-                <p>Task · Harvest & collect FFB</p>
-                <p>Block · C4</p>
-                <p>Time · 06:12</p>
-                <p>Evidence · Photo verified ✓</p>
-              </div>
+        <Rise>
+          <p className="label text-signal">Field Activity</p>
+          <h2 className="beat-lg mt-6 max-w-[22ch]">
+            What was planned. What actually happened. Connected.
+          </h2>
+          <p className="quiet mt-7 max-w-[78ch]">
+            Work orders, field completions, the people who did the work, and the outcome that resulted — all tied to the specific place they happened. Not four disconnected records. One thread, from instruction to outcome.
+          </p>
+        </Rise>
+        <Rise delay={0.15}>
+          <div className="mt-12 overflow-hidden rounded-2xl border border-hairline bg-card p-7 md:p-10">
+            <p className="label text-signal">Work order · Complete</p>
+            <div className="mt-8 grid gap-5 font-mono text-sm sm:grid-cols-2 lg:grid-cols-5">
+              <div className="bg-background/50 p-4 border border-hairline">Worker · F-0184</div>
+              <div className="bg-background/50 p-4 border border-hairline">Task · Harvest & collect FFB</div>
+              <div className="bg-background/50 p-4 border border-hairline">Block · C4</div>
+              <div className="bg-background/50 p-4 border border-hairline">Time · 06:12</div>
+              <div className="bg-background/50 p-4 border border-hairline">Evidence · Photo verified ✓</div>
             </div>
-          </Rise>
-        </div>
+          </div>
+        </Rise>
       </Section>
 
+      {/* Feature 3: Reporting */}
       <Section>
-        <div className="grid gap-14 md:grid-cols-2">
-          <Rise>
-            <p className="label text-signal">Reporting</p>
-            <h2 className="beat-lg mt-6 max-w-[17ch]">
-              A manager's morning, in one screen.
-            </h2>
-            <p className="quiet mt-7">
-              Status, exceptions, and progress — surfaced the moment they matter, not compiled the following week. If a block is being mismanaged, you know before it becomes a pattern.
-            </p>
-          </Rise>
-          <Rise delay={0.15}>
-            <div className="border border-hairline bg-card p-7">
-              <p className="label text-signal">Exceptions</p>
-              <p className="beat-md mt-8">Block A9 · −6% variance</p>
-              <div className="mt-8 grid grid-cols-3 gap-px bg-border">
-                <div className="bg-background p-4">
-                  <span className="label">Active</span>
-                  <p className="mt-2 text-2xl">12</p>
-                </div>
-                <div className="bg-background p-4">
-                  <span className="label">Done</span>
-                  <p className="mt-2 text-2xl">38</p>
-                </div>
-                <div className="bg-background p-4">
-                  <span className="label">Flags</span>
-                  <p className="mt-2 text-2xl">03</p>
-                </div>
+        <Rise>
+          <p className="label text-signal">Reporting</p>
+          <h2 className="beat-lg mt-6 max-w-[20ch]">
+            A manager's morning, in one screen.
+          </h2>
+          <p className="quiet mt-7 max-w-[78ch]">
+            Status, exceptions, and progress — surfaced the moment they matter, not compiled the following week. If a block is being mismanaged, you know before it becomes a pattern.
+          </p>
+        </Rise>
+        <Rise delay={0.15}>
+          <div className="mt-12 overflow-hidden rounded-2xl border border-hairline bg-card p-7 md:p-10">
+            <p className="label text-signal">Exceptions</p>
+            <p className="beat-md mt-6">Block A9 · −6% variance</p>
+            <div className="mt-8 grid grid-cols-3 gap-px bg-border">
+              <div className="bg-background p-6">
+                <span className="label">Active</span>
+                <p className="mt-2 text-2xl">12</p>
+              </div>
+              <div className="bg-background p-6">
+                <span className="label">Done</span>
+                <p className="mt-2 text-2xl">38</p>
+              </div>
+              <div className="bg-background p-6">
+                <span className="label">Flags</span>
+                <p className="mt-2 text-2xl">03</p>
               </div>
             </div>
-          </Rise>
-        </div>
+          </div>
+        </Rise>
       </Section>
 
+      {/* How it connects */}
       <Section>
         <Rise>
           <p className="label text-signal">How it connects</p>
-          <h2 className="beat-lg mt-6">
+          <h2 className="beat-lg mt-6 max-w-[25ch]">
             From what happens in the field, to what you see on your screen.
           </h2>
         </Rise>
@@ -230,6 +336,7 @@ function TelalaOS() {
         </div>
       </Section>
 
+      {/* FAQ */}
       <Section>
         <Rise>
           <p className="label text-signal">Common questions</p>
@@ -238,6 +345,7 @@ function TelalaOS() {
         <Accordion />
       </Section>
 
+      {/* CTA Section */}
       <Section>
         <Rise>
           <h2 className="beat-lg">Switch to Telala OS</h2>

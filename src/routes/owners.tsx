@@ -37,15 +37,15 @@ const PATHS = {
   bare: [
     {
       name: "Money and Land",
-      heading: "Fund the build. We do the rest.",
-      body: "You bring the capital for establishment. We plant, build, and hand you a producing plantation — then continue as your operator under Operate Assist or Operate For You, your choice, once it's live.",
-      best: "People with capital to deploy with land they haven't developed.",
+      heading: "Fund the build.",
+      body: "You bring the capital. We bring the land into production. We plant it, build it, run it to harvest — and hand you something producing, not a plot of promises. From there, you choose how close you stay. Operate Assist if you want your own team in the loop. Operate For You if you'd rather never have to think about it again.",
+      best: "people who have the capital to deploy and no interest in learning  how to grow palm oil to do it.",
     },
     {
       name: "Land, Zero Capital",
-      heading: "Your land. Our capital. You keep the majority of the plantation.",
-      body: "We cover the full cost of establishing your plantation — land prep, planting, the years before first harvest — in exchange for [35]% ownership. You keep the majority stake in a plantation you didn't have to fund yourself. Once it's producing, we continue operating it under the same discipline as every other plantation we run.",
-      best: "Landowners with no capital to establish a plantation from scratch.",
+      heading: "Your land. Our capital. You keep the majority.",
+      body: "Land without money to plant it is just land. It sits there, worth what it always was, earning nothing. We cover the costs — land prep, planting, every year before the first harvest — and take a stake. You keep majority ownership of a plantation you never had to fund. Once it's producing, we run it the same way we run everything: our own money exposed, our own discipline applied.",
+      best: "landowners sitting on ground with no capital to plant it — and nointerest in staying that way.",
     },
   ],
 };
@@ -106,7 +106,18 @@ function Owners() {
       <PageHero
         thread="The Owner Tier"
         title="Two ways in. Four ways forward."
-        lead="Whether you already own a plantation or are starting with your bare land, there's a defined path."
+        lead={
+    <>
+      <p className="mb-4">You're standing at one of two doors.</p>
+      <p className="mb-4">
+        Behind the first: land you already work. We step in exactly where you need us — beside your team, or running the whole floor.
+      </p>
+      <p className="mb-4">
+        Behind the second: land that's still just land; you either already own it, or we find it for you. We assess it, we build it, we run it — your capital or ours, your call.
+      </p>
+      <p>Pick the door you're already at. We'll meet you there.</p>
+    </>
+  }
       />
 
       {/* Interactive Path Selection Section */}

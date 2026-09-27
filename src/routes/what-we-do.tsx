@@ -31,36 +31,66 @@ export const Route = createFileRoute("/what-we-do")({
 function WhatWeDo() {
   return (
     <>
-      <PageHero
-        thread="How Telala works."
-        title="We establish. We operate. We see."
-        lead="Three disciplines. One operating company. Built to run Africa's oil palm industry the way an industry this valuable deserves to be run."
-      />
+      {/* 1. Page Hero */}
+      <section className="w-full bg-white text-black pt-28 pb-20 md:pt-36 md:pb-28">
+        <div className="w-full px-5 md:px-10">
+          
+            <p className="label text-signal">THIS IS HOW TELALA WORKS.</p>
+            <h1 className="beat-lg mt-8 max-w-[23ch] text-black">
+              WE ESTABLISH PLANTATIONS. WE OPERATE THEM. WE HELP YOU SEE—EVERYTHING.
+            </h1>
+            <p className="mt-4 text-lg md:text-xl text-neutral-600 max-w-[70ch] leading-relaxed">
+              Three disciplines. One operating company. Built to run Africa's oil palm industry the way an industry this valuable deserves to be run.
+            </p>
+          
+        </div>
+      </section>
 
+
+      {/* 2. Image Section (Evolution Visual) */}
       <EvolutionVisual />
 
-      <DisciplineSection
-        eyebrow="01 · Establish"
-        heading="Right from the dirt. Assessed. Not assumed."
-        body="Every plantation starts the same way. We survey the land before we touch it — soil, drainage, access, climate — and plant it block by block, with the same discipline whether it's ten hectares or ten thousand. Nothing gets planted on a guess."
-        visual={<EstablishVisual />}
-      />
+      <section className="w-full bg-white text-black pt-28 pb-20 md:pt-36 md:pb-8">
+        <div className="w-full px-5 md:px-10">
+            <h2 className="beat-lg mt-8 max-w-[23ch] text-black">
+              PHASES
+            </h2>
+          
+        </div>
+      </section>
+      {/* 3. Three Disciplines Section - Full width, white background cards with hover states */}
+      <section className="w-full bg-white py-24 md:py-2">
+        <div className="w-full px-5 md:px-10">
+          <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
+            
+            
+            <DisciplineCard
+              eyebrow="01 · Establish"
+              heading="Right from the dirt. Everything Assessed. Nothing assumed."
+              body="Most plantations start with a guess. Soil that looks right. Terrain that seems workable. A local's word that the land is good. Then the yields come in low, three years too late to do anything about it. We test before we plant. Soil composition, drainage, terrain — measured, not eyeballed. If the land doesn't qualify, we don't establish on it. Simple as that. You don't find out your plantation was a bad bet in year four. You find out before we break ground."
+              visual={<EstablishVisual />}
+            />
 
-      <DisciplineSection
-        eyebrow="02 · Operate"
-        heading="Operate Assist. Operate Together. Operate For You."
-        body="Harvesting. Weighing. Transporting. Maintaining. The thousand small actions that quietly decide whether a plantation makes money or slowly loses it. We don't advise on this work. We do it — on the ground, every day, on every plantation we run."
-        visual={<OperateVisual />}
-        tone="secondary"
-      />
+            <DisciplineCard
+              eyebrow="02 · Operate"
+              heading="Operate Assist. Operate Together. Operate For You."
+              body="Cultivation. Harvesting. Weighing. Transporting. Maintaining. Nobody notices these until they go wrong — and by then, the money's already gone. Most companies will tell you how to fix that. We don't advise. We work. On the ground, every day, on every plantation we run — whether you need a hand, a partner, or someone to run the whole operation while you sleep. Choose the distance you want from the work. We're there either way."
+              visual={<OperateVisual />}
+            />
 
-      <DisciplineSection
-        eyebrow="03 · See"
-        heading="If you can't see it, it isn't happening."
-        body="Every harvest. Every transfer. Every hand that touches your land — logged the moment it happens, not summarized weeks later in a phone call. Most plantations in Africa have never had this layer. We built it because we needed it ourselves."
-        visual={<BeatSystemGlimpsed loop />}
-      />
+            <DisciplineCard
+              eyebrow="03 · See"
+              heading="If you can't see it, it isn't happening."
+              body="Every harvest. Every transfer. Every hand that touches your land. Somewhere between the field and your phone call, most of that information gets lost — or worse, someone decides what you get to hear. We built the system that ends that. Every action logged the moment it happens, not summarized weeks later by someone with a reason to round the numbers up. We built it because we needed it ourselves, running our own plantations, tired of finding out the truth too late to act on it. This is what your land looks like when nothing gets to hide."
+              visual={<SeeVisual />}
+            />
 
+          </div>
+        </div>
+      </section>
+      
+
+      {/* 4. Others (Vision Strip & Operating Layer CTA section) */}
       <VisionStrip />
 
       <Section>
@@ -70,7 +100,7 @@ function WhatWeDo() {
         </Rise>
         <Rise delay={0.12}>
           <p className="quiet mt-8 max-w-[52ch]">
-            The same operating layer we use ourselves is the one you'd get. Nothing held back.
+            One system. Every plantation we run, runs on it. Not a client version and a real version. The same one. We don't hand you a dashboard and keep the actual tool for ourselves. What tracks our own plantations, block by block, is what tracks yours. If it's good enough to run our money on, it's good enough to run yours.
           </p>
         </Rise>
         <Rise delay={0.2}>
@@ -80,7 +110,7 @@ function WhatWeDo() {
               See ownership paths
             </ActionLink>
             <ActionLink to="/investors" tone="line">
-              Talk to us about capital
+              Deploy Capital
             </ActionLink>
           </div>
         </Rise>
@@ -98,7 +128,7 @@ function EvolutionVisual() {
   ];
 
   return (
-    <section className="relative isolate h-[66vh] min-h-[520px] overflow-hidden border-b border-hairline bg-ink">
+    <section className="relative isolate w-full h-[66vh] min-h-[520px] overflow-hidden border-b border-hairline bg-ink">
       {frames.map((frame, i) => {
         const isLast = i === frames.length - 1;
         return (
@@ -132,54 +162,58 @@ function EvolutionVisual() {
         );
       })}
       <div className="absolute inset-0 bg-gradient-to-t from-ink/65 via-ink/10 to-ink/20" />
-      <div className="absolute inset-x-0 bottom-0 mx-auto flex max-w-[1600px] items-end justify-between px-5 pb-7 text-ink-foreground md:px-10">
-        <span className="label">Land → establishment → mature canopy</span>
-        <span className="label text-ink-muted">One operating discipline</span>
+      <div className="absolute inset-x-0 bottom-0 mx-auto flex w-full items-end justify-between px-5 pb-7 text-ink-foreground md:px-10">
+        <span className="label"></span>
+        <span className="label text-ink-muted">One operating company</span>
       </div>
     </section>
   );
 }
 
-function DisciplineSection({
+function DisciplineCard({
   eyebrow,
   heading,
   body,
   visual,
-  tone = "background",
 }: {
   eyebrow: string;
   heading: string;
   body: string;
   visual: React.ReactNode;
-  tone?: "background" | "secondary";
 }) {
   return (
-    <section
-      className={`border-b border-hairline py-24 md:py-32 ${tone === "secondary" ? "bg-secondary" : "bg-background"}`}
-    >
-      <div className="mx-auto grid max-w-[1600px] items-center gap-14 px-5 md:grid-cols-[0.9fr_1.1fr] md:gap-20 md:px-10">
-        <div>
-          <Rise>
+    <Rise amount={0.2}>
+      {/* Card wrapper with white background and dark text for high visibility */}
+      <div className="group relative flex h-full flex-col justify-between overflow-hidden border border-hairline bg-white p-8 md:p-10 shadow-sm transition-all duration-300">
+        
+        {/* DEFAULT STATE LAYER (White background, black/neutral-900 text) */}
+        <div className="flex h-full flex-col justify-between transition-opacity duration-300 group-hover:opacity-0">
+          <div>
             <p className="label text-signal">{eyebrow}</p>
-          </Rise>
-          <Rise delay={0.08}>
-            <h2 className="beat-lg mt-6 max-w-[19ch]">{heading}</h2>
-          </Rise>
-          <Rise delay={0.16}>
-            <p className="quiet mt-8 max-w-[52ch]">{body}</p>
-          </Rise>
+            <h3 className="beat-md mt-6 text-neutral-900 font-semibold tracking-tight">{heading}</h3>
+          </div>
+          <div className="mt-8 overflow-hidden border border-hairline">
+            {visual}
+          </div>
         </div>
-        <Rise delay={0.12} amount={0.25}>
-          {visual}
-        </Rise>
+
+        {/* HOVER STATE LAYER (Reveals body description & expand prompt) */}
+        <div className="absolute inset-0 flex flex-col justify-between bg-white p-8 md:p-10 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+          <div>
+            <p className="label text-signal">{eyebrow}</p>
+            <h3 className="beat-md mt-6 text-neutral-900 font-semibold tracking-tight">{heading}</h3>
+            <p className="quiet mt-6 text-sm md:text-base leading-relaxed text-neutral-600">{body}</p>
+          </div>
+        </div>
+
       </div>
-    </section>
+    </Rise>
   );
 }
 
 function EstablishVisual() {
   return (
-    <figure>
+    <figure className="w-full">
       <div className="relative aspect-[4/3] overflow-hidden bg-ink">
         <img
           src={textureSoil}
@@ -199,14 +233,14 @@ function EstablishVisual() {
         <span className="absolute left-[8%] top-[calc(58%-4px)] block size-2 bg-signal" />
         <span className="absolute right-[8%] top-[calc(58%-4px)] block size-2 bg-signal" />
       </div>
-      <figcaption className="label mt-3 text-muted-foreground">Block C4, week one.</figcaption>
+      
     </figure>
   );
 }
 
 function OperateVisual() {
   return (
-    <figure className="relative">
+    <figure className="relative w-full">
       <div className="relative aspect-[4/3] overflow-hidden bg-ink">
         <img
           src={revealDevice}
@@ -217,19 +251,27 @@ function OperateVisual() {
           className="size-full object-cover"
         />
         <motion.div
-          className="absolute right-4 top-[18%] max-w-[230px] border border-ink-foreground/30 bg-ink/90 px-4 py-3 text-ink-foreground backdrop-blur-sm md:right-7"
+          className="absolute right-3 top-[18%] max-w-[180px] border border-ink-foreground/30 bg-ink/90 px-3 py-2 text-ink-foreground backdrop-blur-sm"
           initial={{ opacity: 0, y: 8 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.5 }}
           transition={{ duration: 0.45, delay: 0.3, ease: EASE }}
         >
-          <span className="label text-signal">Live record</span>
-          <p className="mt-2 text-sm">1,240 kg logged at 06:12</p>
-          <span className="absolute -left-20 bottom-4 h-px w-20 origin-right bg-signal" />
-          <span className="absolute -left-[84px] bottom-[13px] size-2 bg-signal" />
+          <span className="label text-signal text-xs">Live record</span>
+          <p className="mt-1 text-xs">1,240 kg logged at 06:12</p>
         </motion.div>
       </div>
     </figure>
+  );
+}
+
+function SeeVisual() {
+  return (
+    <div className="w-full">
+      <div className="overflow-hidden border border-hairline">
+        <BeatSystemGlimpsed loop />
+      </div>
+    </div>
   );
 }
 
@@ -240,27 +282,7 @@ function VisionStrip() {
     { value: 10, suffix: "", label: "countries of operation" },
   ];
 
-  return (
-    <section className="border-b border-hairline bg-ink py-10 text-ink-foreground md:py-14">
-      <div className="mx-auto max-w-[1600px] px-5 md:px-10">
-        <div className="mb-8 flex items-center gap-4">
-          <span className="label text-signal">By 2030</span>
-          <span className="h-px flex-1 bg-ink-foreground/15" />
-        </div>
-        <div className="grid gap-px bg-ink-foreground/10 md:grid-cols-3">
-          {metrics.map((metric) => (
-            <div key={metric.label} className="bg-ink px-0 py-5 md:px-7 md:py-3 first:md:pl-0">
-              <div className="beat-md tabular-nums">
-                <CountUp to={metric.value} />
-                {metric.suffix}
-              </div>
-              <p className="label mt-2 max-w-[28ch] text-ink-muted">{metric.label}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
+ 
 }
 
 function CountUp({ to }: { to: number }) {

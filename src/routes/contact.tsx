@@ -24,7 +24,7 @@ interface FormData {
   message: string
 }
 
-export function WaitlistPage() {
+function WaitlistPage() {
   const [currentStep, setCurrentStep] = useState<number>(1)
   const [selectedAudience, setSelectedAudience] = useState<string | null>(null)
   
@@ -461,7 +461,7 @@ export function WaitlistPage() {
             </div>
             <h2 className="beat-lg mb-3 text-foreground">You’re on the list.</h2>
             <p className="text-muted-foreground text-[15.5px] leading-[1.6] max-w-[42ch] mb-7">
-              Someone reads every one of these. If it’s a fit, you’ll hear from us directly, within 72 hours.
+              Someone reads every one of these. If it’s a fit, you’ll hear from us directly, within 24 hours.
             </p>
             <div className="label text-muted-foreground border-t border-hairline pt-4">
               Filed as: <span className="text-foreground font-medium">{currentAudienceTag}</span>
