@@ -9,6 +9,7 @@ import darkLand from "@/assets/dark-land.jpg";
 import industryScale from "@/assets/industry-scale.jpg";
 import heroCanopy from "@/assets/hero-canopy.jpg";
 import textureSoil from "@/assets/texture-soil.jpg";
+import whatsappImage from "@/assets/whatsappImage.jpeg";
 
 const TITLE = "How Telala Works — Telala";
 const DESCRIPTION =
@@ -32,7 +33,7 @@ function WhatWeDo() {
   return (
     <>
       {/* 1. Page Hero */}
-      <section className="w-full bg-white text-black pt-28 pb-20 md:pt-36 md:pb-28">
+      <section className="w-full bg-white text-black pt-28 pb-20 md:pt-36 md:pb-8">
         <div className="w-full px-5 md:px-10">
           
             <p className="label text-signal">THIS IS HOW TELALA WORKS.</p>
@@ -94,26 +95,45 @@ function WhatWeDo() {
       <VisionStrip />
 
       <Section>
-        <Rise>
-          <p className="label text-signal">The operating layer</p>
-          <h2 className="beat-lg mt-6 max-w-[22ch]">One system. Every plantation we run, runs on it.</h2>
-        </Rise>
-        <Rise delay={0.12}>
-          <p className="quiet mt-8 max-w-[52ch]">
-            One system. Every plantation we run, runs on it. Not a client version and a real version. The same one. We don't hand you a dashboard and keep the actual tool for ourselves. What tracks our own plantations, block by block, is what tracks yours. If it's good enough to run our money on, it's good enough to run yours.
-          </p>
-        </Rise>
-        <Rise delay={0.2}>
-          <div className="mt-12 flex flex-wrap gap-4">
-            <ActionLink to="/os">Explore Telala OS</ActionLink>
-            <ActionLink to="/owners" tone="line">
-              See ownership paths
-            </ActionLink>
-            <ActionLink to="/investors" tone="line">
-              Deploy Capital
-            </ActionLink>
+        <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16">
+          {/* Left Column: Text & CTA Links */}
+          <div>
+            <Rise>
+              <p className="label text-signal">The operating layer</p>
+              <h2 className="beat-lg mt-6 max-w-[22ch]">One system. Every plantation we run, runs on it.</h2>
+            </Rise>
+            <Rise delay={0.12}>
+              <p className="quiet mt-8 max-w-[52ch]">
+                One system. Every plantation we run, runs on it. Not a client version and a real version. The same one. We don't hand you a dashboard and keep the actual tool for ourselves. What tracks our own plantations, block by block, is what tracks yours. If it's good enough to run our money on, it's good enough to run yours.
+              </p>
+            </Rise>
+            <Rise delay={0.2}>
+              <div className="mt-12 flex flex-wrap gap-4">
+                <ActionLink to="/os">Explore Telala OS</ActionLink>
+                <ActionLink to="/owners" tone="line">
+                  See ownership paths
+                </ActionLink>
+                <ActionLink to="/investors" tone="line">
+                  Deploy Capital
+                </ActionLink>
+              </div>
+            </Rise>
           </div>
-        </Rise>
+
+          {/* Right Column: Canopy Image */}
+          <Rise delay={0.25}>
+            <div className="relative aspect-[4/3] w-full overflow-hidden border border-hairline shadow-sm">
+              <img
+                src={whatsappImage}
+                alt="Mature oil palm canopy under active management"
+                loading="lazy"
+                width={1200}
+                height={900}
+                className="size-full object-cover"
+              />
+            </div>
+          </Rise>
+        </div>
       </Section>
     </>
   );
