@@ -26,7 +26,7 @@ function About() {
     <>
       {/* Right Column: Canopy Image */}
       <Rise delay={0.25}>
-        <div className="relative aspect-[4/3] w-full h-[66vh] min-h-[520px]  overflow-hidden border border-hairline shadow-sm">
+        <div className="relative aspect-[4/3] mb-0 pb-0 w-full h-[66vh] min-h-[520px]  overflow-hidden border border-hairline shadow-sm">
            <img
               src={whatsappImage}
               alt="Mature oil palm canopy under active management"
@@ -39,29 +39,33 @@ function About() {
       </Rise>
       
       {/* 1. Page Hero */}
-      <section className="w-full bg-white text-black pt-28 pb-20 md:pt-36 md:pb-8">
+      <section className="w-full bg-white text-black pt-28 pb-20 md:pt-16 md:pb-8">
         <div className="w-full px-5 md:px-10">
-          <h2 className="beat-md mt-0 max-w-[43ch] text-black normal-case mb-20 font-normal  ">
+          <Rise delay={0.1}>
+              <h1 className="beat-lg mt-8 max-w-[23ch] text-black mb-2 ">
+                  ABOUT TELALA
+              </h1>
+         </Rise>
+          <p className="   mt-6 text-base leading-relaxed max-w-[100ch] ">
             We Collaborate: If you want to work with us, and we can see we
-            automatically want to work with you. <br /> <br />
+            automatically want to work with you. <br /> 
             We are Adventurous: There's no distance too far, no transaction too big. If
             you align with our business ideals, we would cross a thousand seas to offer
-            you unparalleled service. <br /> <br />
+            you unparalleled service.
             We like Big: If you're big, we would work our tail off to help you become
             bigger. And If you're small, with us on your side, you're definitely becoming
             big.
             This is who we are. This is Telala!
-          </h2>
+          </p>
                     
         </div>
 
         <Rise delay={0.2}>
-              <div className="mt-12 flex flex-wrap gap-4 ">
+              <div className="mt-12 flex flex-wrap gap-4 px-5 md:px-10 mb-40">
                 <ActionLink to="/os">Explore Telala OS</ActionLink>
               </div>
         </Rise>
       </section>
-
        
     </>
   );

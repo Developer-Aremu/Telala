@@ -108,12 +108,12 @@ function Owners() {
             </Rise>
             <Rise delay={0.1}>
               <h1 className="beat-lg mt-8 max-w-[23ch] text-black">
-                Four paths. One standard of industrial execution.
+                EVERY AFRICAN OF MEANS SHOULD OWN A PLANTATION.
               </h1>
             </Rise> 
-            <Rise>
+           {/* <Rise>
                <p className="mt-4 text-lg md:text-xl text-neutral-600 max-w-[70ch] leading-relaxed">You're standing at one of two doors. Behind the first: land you already work. We step in exactly where you need us — beside your team, or running the whole floor. Behind the second: land that's still just land; you either already own it, or we find it for you. We assess it, we build it, we run it — your capital or ours, your call. Pick the door you're already at. We'll meet you there.</p>               
-            </Rise>
+            </Rise> */}
           </div>
         </div>
       
