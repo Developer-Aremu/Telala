@@ -41,36 +41,38 @@ function TelalaOS() {
       </section>
 
       {/* 2. The Report That Was Probably Right */}
-      <Section className="py-10 md:py-14">
-        <Rise delay={0.1}>
-          <p className="label text-signal">The invisible gap</p>
-          <h2 className="beat-lg mt-6 max-w-[22ch] text-black">
-            The Report That Was Probably Right
-          </h2>
-        </Rise>
-
-        <div className="mt-8 mb-10 max-w-[100ch]">
-          <Rise delay={0.15}>
-            <p className=" max-w-[200ch] text-base leading-relaxed">
-              Every week, the numbers look fine. The harvest looks good. The logs match up. Nothing seems wrong. And still, somehow, the plantation makes less than it should. <br /> <br />
-              That's the hard part. Nothing here is clearly wrong. A load weighed a little less than it should. A truck took longer than it should. A number got rounded before it reached you.
-              Each one means nothing on its own. Add them up, and the plantation is quietly losing more than it should — with no single moment you can point to and say: that's where it went.
-            </p> 
+      <Section >
+        <div className="py-10 md:py-14">
+            <Rise delay={0.1}>
+            <p className="label text-signal">The invisible gap</p>
+            <h2 className="beat-lg mt-6 max-w-[22ch] text-black">
+              The Report That Was Probably Right
+            </h2>
           </Rise>
+
+          <div className="mt-8 mb-10 max-w-[100ch]">
+            <Rise delay={0.15}>
+              <p className=" max-w-[200ch] text-base leading-relaxed">
+                Every week, the numbers look fine. The harvest looks good. The logs match up. Nothing seems wrong. And still, somehow, the plantation makes less than it should. <br /> <br />
+                That's the hard part. Nothing here is clearly wrong. A load weighed a little less than it should. A truck took longer than it should. A number got rounded before it reached you.
+                Each one means nothing on its own. Add them up, and the plantation is quietly losing more than it should — with no single moment you can point to and say: that's where it went.
+              </p> 
+            </Rise>
+          </div>
+
+          <div className="w-full max-w-[100ch] py-10 md:py-4">
+            <Rise>
+              <h2 className="beat-lg mt-6 text-black max-w-[200ch]">What you can't see is what costs you</h2>
+            </Rise>
+
+            <Rise delay={0.15}>
+              <p className="quiet mt-6 text-base leading-relaxed max-w-[200ch]">
+                Loss on a plantation rarely shows itself. It looks like a normal Tuesday. A weight that's a bit off. A truck that took too long, with no reason why. A block that doesn't add up once it reaches the mill.
+                <br /><br />
+                It's not about blame. It's that no one — not you, not your managers — has a way to know, one way or the other.
+              </p>
+            </Rise>
         </div>
-
-        <div className="w-full max-w-[100ch] py-10 md:py-4">
-          <Rise>
-            <h2 className="beat-lg mt-6 text-black max-w-[200ch]">What you can't see is what costs you</h2>
-          </Rise>
-
-          <Rise delay={0.15}>
-            <p className="quiet mt-6 text-base leading-relaxed max-w-[200ch]">
-              Loss on a plantation rarely shows itself. It looks like a normal Tuesday. A weight that's a bit off. A truck that took too long, with no reason why. A block that doesn't add up once it reaches the mill.
-              <br /><br />
-              It's not about blame. It's that no one — not you, not your managers — has a way to know, one way or the other.
-            </p>
-          </Rise>
         </div>
       </Section>
 
@@ -118,7 +120,7 @@ function TelalaOS() {
       </Section>
 
       {/* 5. The Gap Closes Section with Faded Ash Photo Placeholder */}
-      <Section className="">
+      <Section>
         <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
           <Rise delay={0.15}>
             <div className="relative h-[320px] w-full overflow-hidden bg-neutral-200/60 shadow-inner flex items-center justify-center">
