@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageHero, Section, ActionLink } from "@/components/site/PageShell";
 import { Rise } from "@/components/site/motion-primitives";
+import canopyDay from "@/assets/canopy-day.jpg";
 
 const TITLE = "The Industry — Telala";
 
@@ -34,7 +35,7 @@ function Industry() {
       <PageHero
         thread="The Industry"
         title="33% of the world's most suitable oil-palm land is in Africa. We produce 4.2% of the world's supply."
-        lead="Africa has 33% of the world's suitable oil-palm growing land and produces only 4.2% of the global palm oil supply. But that number hides a critical reality: plantations are expanding, and processing capacity isn't keeping up."
+        lead="Here's the part that number hides: plantations are expanding across this continent right now. More land is going into palm every year. Processing capacity isn't expanding with it."
       />
 
       <Section>
@@ -45,14 +46,14 @@ function Industry() {
                 33%
               </p>
               <p className="quiet mt-5 text-ink-muted">
-                of the world's suitable oil-palm growing land
+                of the world's most suitable oil-palm land is in Africa
               </p>
             </div>
             <div className="bg-card p-10 md:p-14">
               <p className="text-6xl font-semibold tracking-tight md:text-8xl">
                 4.2%
               </p>
-              <p className="quiet mt-5">of global palm oil supply</p>
+              <p className="quiet mt-5">of the world's supply</p>
             </div>
           </div>
         </Rise>
@@ -87,12 +88,22 @@ function Industry() {
       </Section>
 
       <Section>
-        <Rise>
-          <p className="label text-signal">Infrastructure response</p>
-          <h2 className="beat-lg mt-6 max-w-[20ch]">
-            Mills. Refineries. Capacity sized to match planting.
+        <Rise delay={0.3}>
+            <div className="relative mt-12 h-[450px] w-full overflow-hidden    -hairline shadow-sm">
+              <img
+                src={canopyDay}
+                alt="Oil palm canopy in full daylight"
+                className="absolute inset-0 size-full object-cover"
+              />
+              <div className="absolute inset-0 bg-ink/20" />
+            </div>
+          </Rise>
+        <Rise className="py-5 md:py-0 ">
+          <p className="label text-signal pt-12">Infrastructure response</p>
+          <h2 className="beat-lg mt-6 max-w-[22ch]">
+            Mills. Refineries. Processing infrastructure sized to match planting.
           </h2>
-          <p className="quiet mt-7 max-w-[72ch]">
+          <p className="quiet mt-7 max-w-[72ch] ">
             This is the arm of Telala built to close that gap. Processing infrastructure sized to match planting as it happens — not years behind it, and not handed off to equipment that was never built for this scale. The fruit already exists. The demand already exists. What's missing is capacity built to actually capture what's there.
           </p>
         </Rise>
@@ -118,15 +129,12 @@ function Industry() {
 
       <Section>
         <Rise>
-          <h2 className="beat-lg">Build the industry with us.</h2>
+          <h2 className="beat-lg max-w-[20ch]">Build the industry with us.</h2>
           <p className="quiet mt-7 max-w-[75ch]">
-            Capacity built now protects a harvest that's already growing and the market waiting for it. However you fit — owner, operator, investor, or partner — there's a place to start.
+            Capacity built now protects a harvest that's already growing and the margin currently being lost to equipment that was never built for it.
           </p>
           <div className="mt-10 flex flex-wrap gap-4">
-            <ActionLink to="/contact">Talk to us</ActionLink>
-            <ActionLink to="/what-we-do" tone="line">
-              Explore the value chain
-            </ActionLink>
+            <ActionLink to="/contact">Fund the infrastructure →</ActionLink>
           </div>
         </Rise>
       </Section>
