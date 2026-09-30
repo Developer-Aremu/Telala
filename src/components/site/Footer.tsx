@@ -7,6 +7,7 @@ const COLUMNS = [
       { label: "What we do", to: "/what-we-do" as const },
       { label: "About", to: "/about" as const },
       { label: "Industry", to: "/industry" as const },
+      { label: "Careers", to: "/careers" as const }
     ],
   },
   {
