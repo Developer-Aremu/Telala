@@ -10,7 +10,9 @@ import industryScale from "@/assets/industry-scale.jpg";
 import heroCanopy from "@/assets/hero-canopy.jpg";
 import textureSoil from "@/assets/texture-soil.jpg";
 import whatsappImage from "@/assets/whatsappImage.jpeg";
-import whatsappImage2 from "@/assets/Notwatching.jpeg";
+import notWatching from "@/assets/Blindspot.jpeg";
+import underHero from "@/assets/frames-for-your-heart-UTGMIXyHGNo-unsplash.jpg.jpeg";
+import systemwatch from "@/assets/pexels-jan-van-der-wolf-11680885-15640038.jpg";
 
 const TITLE = "How Telala Works — Telala";
 const DESCRIPTION =
@@ -50,7 +52,17 @@ function WhatWeDo() {
 
 
       {/* 2. Image Section (Evolution Visual) */}
-      <EvolutionVisual />
+
+      <Rise delay={0}>
+            <div className="relative mt-6 h-[550px] w-full overflow-hidden ">
+              <img
+                src={underHero}
+                alt="Oil palm canopy in full daylight"
+                className="absolute inset-0 size-full object-cover"
+              />
+              <div className="absolute inset-0 bg-ink/20" />
+            </div>
+          </Rise>
 
       <section className="w-full bg-white text-black pt-28 pb-20 md:pt-36 md:pb-8">
         <div className="w-full px-5 md:px-10">
@@ -125,7 +137,7 @@ function WhatWeDo() {
           <Rise delay={0.25}>
             <div className="relative aspect-[4/3] w-full overflow-hidden border border-hairline shadow-sm">
               <img
-                src={whatsappImage}
+                src={systemwatch}
                 alt="Mature oil palm canopy under active management"
                 loading="lazy"
                 width={1200}
@@ -288,11 +300,28 @@ function OperateVisual() {
 
 function SeeVisual() {
   return (
-    <div className="w-full">
-      <div className="overflow-hidden border border-hairline">
-        <BeatSystemGlimpsed loop />
+    <figure className="w-full">
+      <div className="relative aspect-[4/3] overflow-hidden bg-ink">
+        <img
+          src={notWatching}
+          alt="Oil palm plantation soil being assessed before establishment"
+          loading="lazy"
+          width={1200}
+          height={900}
+          className="size-full object-cover"
+        />
+        <motion.span
+          className="absolute left-[8%] top-[58%] block h-px w-[84%] origin-left bg-signal"
+          initial={{ scaleX: 0 }}
+          whileInView={{ scaleX: 1 }}
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ duration: 0.6, ease: EASE }}
+        />
+        <span className="absolute left-[8%] top-[calc(58%-4px)] block size-2 bg-signal" />
+        <span className="absolute right-[8%] top-[calc(58%-4px)] block size-2 bg-signal" />
       </div>
-    </div>
+      
+    </figure>
   );
 }
 

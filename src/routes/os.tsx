@@ -148,7 +148,7 @@ function TelalaOS() {
               Not hoping the reports are true. Knowing — because every number is checked the second it's made.
             </p>
             <div className="mt-10 flex flex-wrap justify-center gap-4">
-              <ActionLink to="/contact">Get the OS</ActionLink>
+              <ActionLink to="/contact">Join the waitlist</ActionLink>
               <ActionLink to="/what-we-do" tone="line">
                 Explore operations
               </ActionLink>

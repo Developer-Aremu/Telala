@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { PageHero, Section, ActionLink } from "@/components/site/PageShell";
 import { Rise } from "@/components/site/motion-primitives";
 import canopyDay from "@/assets/canopy-day.jpg";
+import millFactory from "@/assets/Gemini_Generated_Image_s0teybs0teybs0te.jpg";
 
 const TITLE = "The Industry — Telala";
 
@@ -91,7 +92,7 @@ function Industry() {
         <Rise delay={0.3}>
             <div className="relative mt-12 h-[450px] w-full overflow-hidden    -hairline shadow-sm">
               <img
-                src={canopyDay}
+                src={millFactory}
                 alt="Oil palm canopy in full daylight"
                 className="absolute inset-0 size-full object-cover"
               />

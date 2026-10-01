@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageHero, Section, ActionLink } from "@/components/site/PageShell";
 import { Rise } from "@/components/site/motion-primitives";
-import whatsappImage from "@/assets/whatsappImage.jpeg";
+import whatsappImage from "@/assets/high-angle-shot-palm-trees-blue-cloudy-sky.jpg";
 
 const TITLE = "About — Telala";
 const DESCRIPTION =
@@ -24,7 +24,7 @@ export const Route = createFileRoute("/about")({
 function About() {
   return (
     <>
-      {/* Right Column: Canopy Image */}
+      {/* bottom Column: Canopy Image */}
       <Rise delay={0.25}>
         <div className="relative aspect-[4/3] mb-0 pb-0 w-full h-[66vh] min-h-[520px]  overflow-hidden border border-hairline shadow-sm">
            <img
@@ -46,14 +46,8 @@ function About() {
                   ABOUT TELALA
               </h1>
          </Rise>
-          <p className="   mt-6 text-base leading-relaxed max-w-[100ch] ">
-           We Collaborate: If you want to work with us, and we can see our values in you, we automatically want to work with you. <br /> 
-            We are Adventurous: There's no distance too far, no transaction too big. If
-            you align with our business ideals, we would cross a thousand seas to offer
-            you unparalleled service.
-            We like Big: If you're big, we would work our tail off to help you become
-            bigger. And If you're small, with us on your side, you're definitely becoming
-            big.
+          <p className="   mt-6 text-xl leading-relaxed max-w-[45ch] ">
+           We Collaborate: If you want to work with us, and we can see our values in you, we automatically want to work with you
             This is who we are. This is Telala!
           </p>
                     

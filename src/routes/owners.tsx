@@ -16,7 +16,6 @@ export const Route = createFileRoute("/owners")({
   component: Owners,
 });
 
-
 // All four paths structured with their style guide compliant headings
 const PATHS = [
   {
@@ -73,24 +72,53 @@ const FAQ = [
   ],
 ];
 
-// Accordion component for rendering FAQ items interactively
-function Accordion({ items }: { items: string[][] }) {
-  const [open, setOpen] = useState<number | null>(null);
-  
+// Split Accordion component for side-by-side layout matching the reference style
+function SplitAccordion({ items }: { items: string[][] }) {
+  const [open, setOpen] = useState<number | null>(0); // First item open by default like the screenshot
+
   return (
-    <div className="mt-10 border-t border-hairline">
-      {items.map(([q, a], i) => (
-        <div key={q} className="border-b border-hairline">
-          <button
-            onClick={() => setOpen(open === i ? null : i)}
-            className="flex w-full items-center justify-between gap-8 py-6 text-left"
-          >
-            <span className="beat-sm">{q}</span>
-            <span className="text-signal">{open === i ? "−" : "+"}</span>
-          </button>
-          {open === i ? <p className="quiet max-w-[70ch] pb-7">{a}</p> : null}
-        </div>
-      ))}
+    <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start mx-20">
+      {/* Left Column: Heading, Description, and Link */}
+      <div className="lg:col-span-5 ">
+        <Rise>
+          <p className="label text-signal">Before you reach out</p>
+          <h2 className="beat-lg mt-4 text-black">
+            Any questions?<br />We got you.
+          </h2>
+          <p className="quiet mt-6 text-base md:text-lg leading-relaxed max-w-[45ch]">
+            Everything you need to know about partnering with Telala, our operational paths, and what happens when we step onto your land.
+          </p>
+          <div className="mt-8">
+            <ActionLink to="/contact">More FAQs</ActionLink>
+          </div>
+        </Rise>
+      </div>
+
+      {/* Right Column: Accordion List */}
+      <div className="lg:col-span-7">
+        <Rise delay={0.1}>
+          <div className="border-t border-hairline">
+            {items.map(([q, a], i) => (
+              <div key={q} className="border-b border-hairline">
+                <button
+                  onClick={() => setOpen(open === i ? null : i)}
+                  className="flex w-full items-center justify-between gap-8 py-6 text-left group"
+                >
+                  <span className="beat-sm group-hover:text-signal transition-colors">{q}</span>
+                  <span className="text-signal text-xl font-medium shrink-0">
+                    {open === i ? "−" : "+"}
+                  </span>
+                </button>
+                {open === i ? (
+                  <p className="quiet max-w-[65ch] pb-7 text-sm md:text-base leading-relaxed animate-fadeIn">
+                    {a}
+                  </p>
+                ) : null}
+              </div>
+            ))}
+          </div>
+        </Rise>
+      </div>
     </div>
   );
 }
@@ -108,15 +136,10 @@ function Owners() {
                 EVERY AFRICAN <span className="text-signal">OF MEANS</span> SHOULD OWN A PLANTATION.
               </h1>
             </Rise> 
-           {/* <Rise>
-               <p className="mt-4 text-lg md:text-xl text-neutral-600 max-w-[70ch] leading-relaxed">You're standing at one of two doors. Behind the first: land you already work. We step in exactly where you need us — beside your team, or running the whole floor. Behind the second: land that's still just land; you either already own it, or we find it for you. We assess it, we build it, we run it — your capital or ours, your call. Pick the door you're already at. We'll meet you there.</p>               
-            </Rise> */}
           </div>
         </div>
-      
       </section>
         
-
       {/* All Four Paths Side-by-Side Section with custom oklch background and gapped cards */}
       <div 
         className="border-y border-hairline py-20 md:py-28" 
@@ -151,24 +174,23 @@ function Owners() {
         </div>
       </div>
 
-      {/* FAQ Section */}
-      <Section>
-        <Rise>
-          <p className="label text-signal">Before you reach out</p>
-          <h2 className="beat-lg mt-6">Questions worth answering first.</h2>
-        </Rise>
-        <Accordion items={FAQ} />
+      {/* FAQ Section (Adopted Two-Column Split Layout) */}
+      <Section >
+       <div className="py-20 md:py-28">
+            <SplitAccordion items={FAQ} />
+        </div> 
       </Section>
 
       {/* Red Call to Action Banner Section */}
-      <Section className="mt-10 md:mt-8">
+      <div className="mt-10 md:mt-8 pb-20">
+        
         <Rise>
           <div className="bg-black text-white rounded-2xl p-8 md:p-14 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-10">
             <h2 className="beat-md max-w-[24ch] text-white">
               Tell us where you're starting from. We'll tell you what's possible.
             </h2>
             <div className="flex flex-col items-start lg:items-end gap-6 max-w-[45ch]">
-              <p className="text-white/80 text-sm leading-relaxed">
+              <p className="text-white/80 text-sm leading-relaxed text-right">
                 Join the waitlist and we'll reach you within 24 hours with the specific path that fits your land, your capital, and your timeline.
               </p>
               <div>
@@ -179,7 +201,9 @@ function Owners() {
             </div>
           </div>
         </Rise>
-      </Section>
+        
+      </div>
+
     </>
   );
 }

@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Section, ActionLink } from "@/components/site/PageShell";
 import { Rise } from "@/components/site/motion-primitives";
-import { ShieldCheck, Zap, Award, TrendingUp, Globe } from "lucide-react";
+import { ShieldCheck, Zap, Award, TrendingUp, Globe, FileText, Search, ClipboardCheck, CheckCircle2, ArrowRight } from "lucide-react";
 import teamImage from "@/assets/people-office-work-day.jpg";
 
 const TITLE = "Careers — Telala";
@@ -58,22 +58,26 @@ const TRAITS = [
 ];
 
 const PROCESS = [
-  [
-    "Apply",
-    "Tell us who you are and what you have delivered.",
-  ],
-  [
-    "Review",
-    "Our team reads every application and measures it against what the role requires: your experience, what you have delivered, and how closely you match the people we are looking for. If you fit, you move to assessment.",
-  ],
-  [
-    "Assess",
-    "A practical task and a conversation with the team.",
-  ],
-  [
-    "Offer",
-    "A clear offer, then structured onboarding.",
-  ],
+  {
+    title: "Apply",
+    desc: "Tell us who you are and what you have delivered.",
+    icon: FileText,
+  },
+  {
+    title: "Review",
+    desc: "Our team reads every application and measures it against what the role requires: your experience, what you have delivered, and how closely you match the people we are looking for. If you fit, you move to assessment.",
+    icon: Search,
+  },
+  {
+    title: "Assess",
+    desc: "A practical task and a conversation with the team.",
+    icon: ClipboardCheck,
+  },
+  {
+    title: "Offer",
+    desc: "A clear offer, then structured onboarding.",
+    icon: CheckCircle2,
+  },
 ];
 
 function Careers() {
@@ -113,14 +117,14 @@ function Careers() {
       </section>
 
       {/* 1. Who We Are Looking For */}
-      <div className="w-full bg-black py-16 md:py-24">
+      <div className="w-full bg-white py-16 md:py-24">
         <div className="mx-auto max-w-[1600px] px-5 md:px-10">
           <Rise>
             <p className="label text-signal">Who we are looking for</p>
-            <h2 className="beat-lg mt-6 max-w-[24ch] text-white">
+            <h2 className="beat-lg mt-6 max-w-[24ch]">
               We are building the industries that will let Africa feed the world in 50 years.
             </h2>
-            <p className="mt-6 max-w-[70ch] text-base md:text-lg leading-relaxed text-neutral-200 ">
+            <p className="quiet mt-6 max-w-[70ch] text-base md:text-lg leading-relaxed">
               To do that, we need people like you. If that is why you work, this is where you belong.
             </p>
           </Rise>
@@ -128,13 +132,12 @@ function Careers() {
           <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {TRAITS.map(({ num, title, description, icon: Icon }, i) => (
               <Rise key={title} delay={i * 0.1}>
-                <div className="h-full bg-card p-6 shadow-sm flex flex-col items-start border border-neutral-100 ">
-                  <div className="flex items-start gap-4">
-                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-x bg-red-500/10 text-red-600 border border-red-500/20">
+                <div className="h-full bg-card p-6 shadow-sm flex flex-col items-start border border-neutral-100 rounded-xl">
+                  <div className="flex items-center gap-4">
+                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-red-500/10 text-red-600 border border-red-500/20">
                       <Icon className="h-5 w-5" />
                     </div>
                     <div>
-                      <span className="label text-signal text-xs">Step {num}</span>
                       <h3 className="beat-sm mt-1 text-black text-lg font-medium">{title}</h3>
                     </div>
                   </div>
@@ -146,25 +149,34 @@ function Careers() {
         </div>
       </div>
 
-      {/* 2. How It Works */}
-      <div className="w-full bg-neutral-50/50 py-16 md:py-24">
+      {/* 2. How It Works (Black Background with matching red-tinted icon cards) */}
+      <div className="w-full bg-black text-white py-16 md:py-24">
         <div className="mx-auto max-w-[1600px] px-5 md:px-10">
-          <div className="max-w-[80ch] py-4 md:py-8">
+          <div className="max-w-[80ch] py-4 md:py-8 mb-6">
             <Rise>
-              <p className="label text-signal">How it works</p>
-              <h2 className="beat-lg mt-6 text-black">The application process</h2>
+              <p className="label text-red-500 font-mono text-xs uppercase tracking-wider">How it works</p>
+              <h2 className="beat-lg mt-4 text-white">The application process</h2>
             </Rise>
           </div>
 
-          <div className="mt-12 grid gap-px bg-border md:grid-cols-4">
-            {PROCESS.map(([step, desc], i) => (
-              <Rise key={step} delay={i * 0.1}>
-                <div className="h-full bg-white p-7 md:min-h-72 flex flex-col justify-between">
-                  <div>
-                    <span className="label text-signal">0{i + 1}</span>
-                    <h3 className="beat-sm mt-8 text-black">{step}</h3>
-                    <p className="quiet mt-4 text-sm leading-relaxed">{desc}</p>
+          <div className="mt-8 grid gap-8 md:grid-cols-4 relative items-start">
+            {PROCESS.map(({ title, desc, icon: Icon }, i) => (
+              <Rise key={title} delay={i * 0.1}>
+                <div className="relative flex flex-col h-full group">
+
+                  {/* Icon Header with Red Background & Border (matching Section 1 style) */}
+                  <div className="flex items-center justify-between mb-6">
+                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-red-500/10 text-red-500 border border-red-500/20">
+                      <Icon className="h-5 w-5" />
+                    </div>
+                    {i < PROCESS.length - 1 && (
+                      <ArrowRight className="hidden md:block h-5 w-5 text-neutral-700 shrink-0 mx-2" />
+                    )}
                   </div>
+                  
+                  {/* Step Title & Description */}
+                  <h3 className="text-white text-xl font-semibold mb-3">{title}</h3>
+                  <p className="text-neutral-400 text-sm md:text-base max-w-[30ch] leading-relaxed">{desc}</p>
                 </div>
               </Rise>
             ))}
@@ -263,10 +275,9 @@ function Careers() {
                 />
               </div>
 
-              <div className="text-sm text-neutral-500">
-                <h2 className="block text-sm font-medium text-black mb-2 mt-14 text-signal">More detail is requested only if you are shortlisted.</h2>
+              <div className="text-sm text-neutral-800 text-signal">
+                <h3>More detail is requested only if you are shortlisted.</h3>
               </div>
-            
 
               {/* Submit Button */}
               <div className="pt-4 text-center">

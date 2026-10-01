@@ -101,9 +101,7 @@ function WaitlistPage() {
               }`}>
                 {(currentStep > 1 || selectedAudience) && <span className="text-[9px] font-bold">✓</span>}
               </div>
-              <span className={`text-[13px] font-medium transition-colors ${currentStep === 1 ? 'text-foreground' : 'text-muted-foreground group-hover:text-foreground'}`}>
-                Role
-              </span>
+              
             </button>
 
             {/* Step 2 Node: Details */}
@@ -122,9 +120,7 @@ function WaitlistPage() {
               }`}>
                 {currentStep > 2 && <span className="text-[9px] font-bold">✓</span>}
               </div>
-              <span className={`text-[13px] font-medium transition-colors ${currentStep === 2 ? 'text-foreground' : 'text-muted-foreground group-hover:text-foreground'}`}>
-                Details
-              </span>
+  
             </button>
 
             {/* Step 3 Node: Confirmation */}
@@ -134,9 +130,6 @@ function WaitlistPage() {
                   ? 'border-signal bg-signal text-background font-bold shadow-[0_0_10px_rgba(239,68,68,0.25)]' 
                   : 'border-hairline bg-card text-muted-foreground'
               }`} />
-              <span className={`text-[13px] font-medium transition-colors ${currentStep === 3 ? 'text-foreground' : 'text-muted-foreground'}`}>
-                Confirmation
-              </span>
             </div>
           </div>
         </div>
