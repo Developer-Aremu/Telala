@@ -121,7 +121,7 @@ export function BeatClose() {
           <p className="beat-md max-w-[20ch]">It's an honest look at where you stand.</p>
         </Rise>
         <Rise delay={0.3}>
-          <p className="quiet">Join the waitlist. We'll reach you within 48 hours.</p>
+          <p className="quiet">Join the waitlist. We'll reach you within 24 hours.</p>
         </Rise>
         <Rise delay={0.4}>
           <Link

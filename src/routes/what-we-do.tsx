@@ -10,6 +10,7 @@ import industryScale from "@/assets/industry-scale.jpg";
 import heroCanopy from "@/assets/hero-canopy.jpg";
 import textureSoil from "@/assets/texture-soil.jpg";
 import whatsappImage from "@/assets/whatsappImage.jpeg";
+import whatsappImage2 from "@/assets/Notwatching.jpeg";
 
 const TITLE = "How Telala Works — Telala";
 const DESCRIPTION =
@@ -113,7 +114,7 @@ function WhatWeDo() {
                 <ActionLink to="/owners" tone="line">
                   See ownership paths
                 </ActionLink>
-                <ActionLink to="/investors" tone="line">
+                <ActionLink to="/industry" tone="line">
                   Deploy Capital
                 </ActionLink>
               </div>

@@ -161,7 +161,7 @@ function WaitlistPage() {
               </Rise>
               <Rise delay={0.1}>
                 <p className="text-[14px] leading-[1.6] text-muted-foreground mt-2">
-                  We’ll tell you if you’re ready — a real answer within 72 hours, not an autoreply.
+                  We’ll tell you what is possible — a real answer within 24 hours, not an autoreply
                 </p>
               </Rise>
             </div>
@@ -229,7 +229,7 @@ function WaitlistPage() {
                 A few details, and we’ll take it from here.
               </h2>
               <p className="text-[15px] leading-[1.5] text-muted-foreground">
-                Everything below goes straight to the team reviewing applications — not a queue.
+                Everything below goes straight to real people behind the screen — not an answering machine.
               </p>
             </div>
 
@@ -440,7 +440,7 @@ function WaitlistPage() {
                 >
                   Join the waitlist
                 </button>
-                <span className="text-[12.5px] text-muted-foreground">72-hour response, always from a person.</span>
+                <span className="text-[12.5px] text-muted-foreground">24-hour response, always from a person.</span>
               </div>
             </form>
           </motion.div>

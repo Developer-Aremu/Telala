@@ -47,8 +47,7 @@ function About() {
               </h1>
          </Rise>
           <p className="   mt-6 text-base leading-relaxed max-w-[100ch] ">
-            We Collaborate: If you want to work with us, and we can see we
-            automatically want to work with you. <br /> 
+           We Collaborate: If you want to work with us, and we can see our values in you, we automatically want to work with you. <br /> 
             We are Adventurous: There's no distance too far, no transaction too big. If
             you align with our business ideals, we would cross a thousand seas to offer
             you unparalleled service.

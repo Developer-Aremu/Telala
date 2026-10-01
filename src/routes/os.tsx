@@ -22,7 +22,7 @@ function TelalaOS() {
             </Rise>
             <Rise delay={0.1}>
               <h1 className="beat-lg mt-6 max-w-[26ch] text-black">
-                Something is going missing from your plantation. You don't know what. You don't know where. Not yet.
+                Something is going missing from your plantation. You just don't know what or from where. Not yet.
               </h1>
             </Rise>
           </div>
@@ -62,7 +62,7 @@ function TelalaOS() {
 
           <div className="w-full max-w-[100ch] py-10 md:py-4">
             <Rise>
-              <h2 className="beat-lg mt-6 text-black max-w-[200ch]">What you can't see is what costs you</h2>
+              <h2 className="beat-lg mt-6 text-black max-w-[200ch]">What you can't see is where the margins leak</h2>
             </Rise>
 
             <Rise delay={0.15}>
@@ -148,7 +148,7 @@ function TelalaOS() {
               Not hoping the reports are true. Knowing — because every number is checked the second it's made.
             </p>
             <div className="mt-10 flex flex-wrap justify-center gap-4">
-              <ActionLink to="/contact">Join the waitlist</ActionLink>
+              <ActionLink to="/contact">Get the OS</ActionLink>
               <ActionLink to="/what-we-do" tone="line">
                 Explore operations
               </ActionLink>

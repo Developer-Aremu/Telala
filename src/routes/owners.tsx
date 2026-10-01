@@ -36,7 +36,7 @@ const PATHS = [
   {
     name: "Money and Land",
     heading: "Fund the build.",
-    best: "People who have the capital to deploy and no interest in learning how to grow palm oil to do it.",
+    best: "People who do not already own a plantation but have acquired the right land and have set aside the financial resources to begin. We’ll come in, develop for you, and manage till fruition.",
     ctaText: "Join the waitlist",
     ctaTo: "/contact" as const,
   },
@@ -103,12 +103,9 @@ function Owners() {
       <section className="border-b border-hairline pb-20 pt-36 text-ink-foreground md:pb-28 md:pt-44">
         <div className="mx-auto max-w-[1600px] px-5 md:px-10">
           <div>
-            <Rise>
-              <p className="label text-signal">The Owner Tier</p>
-            </Rise>
             <Rise delay={0.1}>
-              <h1 className="beat-lg mt-8 max-w-[23ch] text-black">
-                EVERY AFRICAN OF MEANS SHOULD OWN A PLANTATION.
+              <h1 className="beat-lg mt-0 max-w-[23ch] text-black">
+                EVERY AFRICAN <span className="text-signal">OF MEANS</span> SHOULD OWN A PLANTATION.
               </h1>
             </Rise> 
            {/* <Rise>

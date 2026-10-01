@@ -110,10 +110,7 @@ function Industry() {
       </Section>
 
       <Section>
-        <Rise>
-          <p className="label text-signal">The connected chain</p>
-        </Rise>
-        <div className="mt-10 grid gap-px border border-hairline bg-border md:grid-cols-4">
+<div className="mt-10 grid gap-px border border-hairline bg-border md:grid-cols-4">
           {CHAIN.map(([h, b], i) => (
             <Rise key={h} delay={i * 0.1}>
               <div className="h-full bg-card p-7 md:min-h-72">
@@ -131,7 +128,7 @@ function Industry() {
         <Rise>
           <h2 className="beat-lg max-w-[20ch]">Build the industry with us.</h2>
           <p className="quiet mt-7 max-w-[75ch]">
-            Capacity built now protects a harvest that's already growing and the margin currently being lost to equipment that was never built for it.
+            Capacity built now protects a harvest that's already growing and the margin currently being lost to equipment that was never built to maximize the output of this industry
           </p>
           <div className="mt-10 flex flex-wrap gap-4">
             <ActionLink to="/contact">Fund the infrastructure →</ActionLink>
