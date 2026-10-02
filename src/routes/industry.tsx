@@ -1,8 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageHero, Section, ActionLink } from "@/components/site/PageShell";
 import { Rise } from "@/components/site/motion-primitives";
-import canopyDay from "@/assets/canopy-day.jpg";
-import millFactory from "@/assets/Gemini_Generated_Image_s0teybs0teybs0te.jpg";
+import heroDesigned from "@/assets/bgWorld.png";
+import coverHovers from "@/assets/Coverhover.jpg";
 
 const TITLE = "The Industry — Telala";
 
@@ -33,33 +33,33 @@ const CHAIN = [
 function Industry() {
   return (
     <>
-      <PageHero
-        thread="The Industry"
-        title="33% of the world's most suitable oil-palm land is in Africa. We produce 4.2% of the world's supply."
-        lead="Here's the part that number hides: plantations are expanding across this continent right now. More land is going into palm every year. Processing capacity isn't expanding with it."
-      />
+      {/* Hero Section */}
+      <section className="relative isolate w-full pt-44 pb-20 md:pt-20 md:pb-28 min-h-[85vh] flex flex-col justify-center overflow-hidden bg-ink text-white">
+        {/* Background Image & Left-to-Right Black Gradient Overlay */}
+        <div className="absolute inset-0 -z-10">
+          <img
+            src={heroDesigned}
+            alt="Oil palm canopy background"
+            className="size-full object-cover object-top"
+          />
+          {/* Left-to-right gradient overlay (opaque black on left fading out to transparent on right) */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black/95 via-black/75 to-transparent" />
+        </div>
+        
+        <div className="mx-auto max-w-[1600px] w-full px-5 md:px-10">
+          <Rise>
+            <p className="label text-signal">The Industry</p>
+            <h1 className="beat-lg mt-6 max-w-[24ch] text-white">
+              33% of the world's most suitable oil palm land is in Africa. We produce 4.2% of the world's supply.
+            </h1>
+            <p className="quiet mt-6 max-w-[75ch] text-neutral-300 text-base md:text-lg leading-relaxed">
+              Here's the part that number hides: plantations are expanding across this continent right now. More land is going into palm every year. Processing capacity isn't expanding with it.
+            </p>
+          </Rise>
+        </div>
+      </section>
 
-      <Section>
-        <Rise>
-          <div className="grid gap-px border border-hairline bg-border md:grid-cols-2">
-            <div className="bg-ink p-10 text-ink-foreground md:p-14">
-              <p className="text-6xl font-semibold tracking-tight md:text-8xl">
-                33%
-              </p>
-              <p className="quiet mt-5 text-ink-muted">
-                of the world's most suitable oil-palm land is in Africa
-              </p>
-            </div>
-            <div className="bg-card p-10 md:p-14">
-              <p className="text-6xl font-semibold tracking-tight md:text-8xl">
-                4.2%
-              </p>
-              <p className="quiet mt-5">of the world's supply</p>
-            </div>
-          </div>
-        </Rise>
-      </Section>
-
+      {/* The Rot, Extraction Gap, and Double Cost Section */}
       <Section>
         <div className="grid gap-14 md:grid-cols-3">
           {[
@@ -88,54 +88,99 @@ function Industry() {
         </div>
       </Section>
 
+      
+      {/* Infrastructure Response Section (2-Column: Text Left, Image Right) */}
       <Section>
-        <Rise delay={0.3}>
-            <div className="relative mt-12 h-[450px] w-full overflow-hidden    -hairline shadow-sm">
-              <img
-                src={millFactory}
-                alt="Oil palm canopy in full daylight"
-                className="absolute inset-0 size-full object-cover"
-              />
-              <div className="absolute inset-0 bg-ink/20" />
-            </div>
-          </Rise>
-        <Rise className="py-5 md:py-0 ">
-          <p className="label text-signal pt-12">Infrastructure response</p>
-          <h2 className="beat-lg mt-6 max-w-[22ch]">
-            Mills. Refineries. Processing infrastructure sized to match planting.
-          </h2>
-          <p className="quiet mt-7 max-w-[72ch] ">
-            This is the arm of Telala built to close that gap. Processing infrastructure sized to match planting as it happens — not years behind it, and not handed off to equipment that was never built for this scale. The fruit already exists. The demand already exists. What's missing is capacity built to actually capture what's there.
-          </p>
-        </Rise>
-      </Section>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+          {/* Left Column: Text Content */}
+          <div className="lg:col-span-6">
+            <Rise>
+              <p className="label text-signal">Infrastructure response</p>
+              <h2 className="beat-lg mt-6 max-w-[22ch]">
+                Mills. Refineries. Processing infrastructure sized to match planting.
+              </h2>
+              <p className="quiet mt-7 max-w-[60ch]">
+                This is the arm of Telala built to close that gap. Processing infrastructure sized to match planting as it happens — not years behind it, and not handed off to equipment that was never built for this scale. The fruit already exists. The demand already exists. What's missing is capacity built to actually capture what's there.
+              </p>
+            </Rise>
+          </div>
 
-      <Section>
-<div className="mt-10 grid gap-px border border-hairline bg-border md:grid-cols-4">
+          {/* Right Column: Image */}
+          <div className="lg:col-span-6">
+            <Rise delay={0.2}>
+              <div className="relative h-[400px] md:h-[480px] w-full overflow-hidden ">
+                <img
+                  src={coverHovers}
+                  alt="Industrial oil palm processing mill"
+                  className="absolute inset-0 size-full object-cover"
+                />
+                <div className="absolute inset-0 bg-ink/10" />
+              </div>
+            </Rise>
+          </div>
+        </div>
+        {/* Chain Section with Hover Effects */}
+      <div className="py-20 px-20 bg-white">
+        <div className="mt-10 grid gap-px border border-hairline bg-border md:grid-cols-4">
           {CHAIN.map(([h, b], i) => (
-            <Rise key={h} delay={i * 0.1}>
-              <div className="h-full bg-card p-7 md:min-h-72">
-                <span className="label text-signal">0{i + 1}</span>
-                <h3 className="beat-sm mt-12">{h}</h3>
-                <p className="quiet mt-5">{b}</p>
-                {i < 3 ? <div className="mt-8 text-signal">→</div> : null}
+            <Rise key={h} delay={i * 0.1} className="h-full">
+              {/* Added group and transition utility classes here */}
+              <div className="h-full bg-card p-7 md:min-h-72 transition-colors duration-300 group hover:bg-signal cursor-pointer">
+                <span className="label text-signal transition-colors duration-300 group-hover:text-white">
+                  0{i + 1}
+                </span>
+                <h3 className="beat-sm mt-12 transition-colors duration-300 group-hover:text-white">
+                  {h}
+                </h3>
+                <p className="quiet mt-5 transition-colors duration-300 group-hover:text-white/90">
+                  {b}
+                </p>
+                {i < 3 ? (
+                  <div className="mt-8 text-signal transition-colors duration-300 group-hover:text-white">
+                    →
+                  </div>
+                ) : null}
               </div>
             </Rise>
           ))}
         </div>
+      </div>
       </Section>
+      
 
-      <Section>
+      {/* Red Call to Action Banner Section */}
+      <div className="mt-2 md:mt-8 pb-0">
+        
+        <Rise>
+          <div className="bg-signal text-white p-8 md:p-14 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-10">
+            <h2 className="beat-md max-w-[24ch] text-white">
+              Build the industry with us.
+            </h2>
+            <div className="flex flex-col items-start lg:items-end gap-6 max-w-[45ch]">
+              <p className="text-white/80 text-sm leading-relaxed text-right">
+                Capacity built now protects a harvest that's already growing and the margin currently being lost to equipment that was never built to maximize the output of this industry.
+              </p>
+              <div>
+                <ActionLink to="/contact">Fund the infrastructure →</ActionLink>
+              </div>
+            </div>
+          </div>
+        </Rise>
+        
+      </div>
+
+      {/* CTA Section */}
+      {/*<Section>
         <Rise>
           <h2 className="beat-lg max-w-[20ch]">Build the industry with us.</h2>
           <p className="quiet mt-7 max-w-[75ch]">
-            Capacity built now protects a harvest that's already growing and the margin currently being lost to equipment that was never built to maximize the output of this industry
+            Capacity built now protects a harvest that's already growing and the margin currently being lost to equipment that was never built to maximize the output of this industry.
           </p>
           <div className="mt-10 flex flex-wrap gap-4">
             <ActionLink to="/contact">Fund the infrastructure →</ActionLink>
           </div>
         </Rise>
-      </Section>
+      </Section>*/}
     </>
   );
 }

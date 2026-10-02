@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { PageHero, Section, ActionLink } from "@/components/site/PageShell";
 import { Rise } from "@/components/site/motion-primitives";
+import heroImage2 from "@/assets/boy.png";
 
 const TITLE = "The Owner Tier — Telala";
 const DESCRIPTION = "Four defined paths for plantation owners and landowners.";
@@ -77,11 +78,11 @@ function SplitAccordion({ items }: { items: string[][] }) {
   const [open, setOpen] = useState<number | null>(0); // First item open by default like the screenshot
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start mx-20">
+    <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start mx-20 my-0">
       {/* Left Column: Heading, Description, and Link */}
-      <div className="lg:col-span-5 ">
+      <div className="lg:col-span-5 mt-0">
         <Rise>
-          <p className="label text-signal">Before you reach out</p>
+          
           <h2 className="beat-lg mt-4 text-black">
             Any questions?<br />We got you.
           </h2>
@@ -128,16 +129,28 @@ function Owners() {
   return (
     <>
       {/* Hero Section */}
-      <section className="border-b border-hairline pb-20 pt-36 text-ink-foreground md:pb-28 md:pt-44">
-        <div className="mx-auto max-w-[1600px] px-5 md:px-10">
-          <div>
-            <Rise delay={0.1}>
-              <h1 className="beat-lg mt-0 max-w-[23ch] text-black">
-                EVERY AFRICAN <span className="text-signal">OF MEANS</span> SHOULD OWN A PLANTATION.
-              </h1>
-            </Rise> 
-          </div>
+      {/* 1. Page Hero with Background Image, Increased Height, and Red-to-Transparent Gradient Overlay */}
+      <section className="relative isolate w-full pt-44 pb-36 md:pt-60 md:pb-48 min-h-[75vh] flex flex-col justify-center overflow-hidden bg-ink ">
+        {/* Background Image & Left-to-Right Red Gradient Overlay */}
+        <div className="absolute inset-0 -z-10">
+          <img
+            src={heroImage2}
+            alt="Oil palm canopy background"
+            className="size-full object-cover object-top"
+          />
+          {/* Left-to-right gradient overlay (opaque red on left fading out to transparent on right) */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black/100 via-black/80 to-transparent" />
         </div>
+       <div className="w-full px-5 md:px-10">
+        <Rise>
+          <h2 className="beat-lg mt-8 max-w-[23ch] text-white">
+            EVERY AFRICAN <span className="text-signal">OF MEANS</span> SHOULD OWN A PLANTATION.
+          </h2>
+        </Rise>
+
+       </div>
+       
+        
       </section>
         
       {/* All Four Paths Side-by-Side Section with custom oklch background and gapped cards */}
@@ -176,16 +189,16 @@ function Owners() {
 
       {/* FAQ Section (Adopted Two-Column Split Layout) */}
       <Section >
-       <div className="py-20 md:py-28">
+       <div className="py-20 md:py-12">
             <SplitAccordion items={FAQ} />
         </div> 
       </Section>
 
       {/* Red Call to Action Banner Section */}
-      <div className="mt-10 md:mt-8 pb-20">
+      <div className="mt-2 md:mt-8 pb-0">
         
         <Rise>
-          <div className="bg-black text-white rounded-2xl p-8 md:p-14 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-10">
+          <div className="bg-signal text-white p-8 md:p-14 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-10">
             <h2 className="beat-md max-w-[24ch] text-white">
               Tell us where you're starting from. We'll tell you what's possible.
             </h2>

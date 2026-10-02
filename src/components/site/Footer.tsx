@@ -7,15 +7,16 @@ const COLUMNS = [
       { label: "What we do", to: "/what-we-do" as const },
       { label: "About", to: "/about" as const },
       { label: "Industry", to: "/industry" as const },
-      { label: "Careers", to: "/careers" as const }
+      { label: "Telala OS", to: "/os" as const },
+      
     ],
   },
   {
     title: "Work with us",
     links: [
       { label: "Owners", to: "/owners" as const },
-      { label: "Investors & partners", to: "/investors" as const },
-      { label: "Telala OS", to: "/os" as const },
+      { label: "Careers", to: "/careers" as const },
+      
     ],
   },
 ];

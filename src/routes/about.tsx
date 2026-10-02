@@ -46,9 +46,9 @@ function About() {
                   ABOUT TELALA
               </h1>
          </Rise>
-          <p className="   mt-6 text-xl leading-relaxed max-w-[45ch] ">
+          <p className=" mt-6 text-base md:text-lg leading-relaxed max-w-[45ch]">
            We Collaborate: If you want to work with us, and we can see our values in you, we automatically want to work with you
-            This is who we are. This is Telala!
+            This is who we are. <span className="text-signal">This is Telala!</span>
           </p>
                     
         </div>

@@ -12,11 +12,18 @@ import textureSoil from "@/assets/texture-soil.jpg";
 import whatsappImage from "@/assets/whatsappImage.jpeg";
 import notWatching from "@/assets/Blindspot.jpeg";
 import underHero from "@/assets/frames-for-your-heart-UTGMIXyHGNo-unsplash.jpg.jpeg";
-import systemwatch from "@/assets/pexels-jan-van-der-wolf-11680885-15640038.jpg";
+import systemwatch from "@/assets/Gemini_Generated_Image_xftngyxftngyxftn.jpg";
+import heroImage from "@/assets/www.beatsnoop.com-3000-FIXz2vGc3i.jpg";
 
 const TITLE = "How Telala Works — Telala";
 const DESCRIPTION =
   "Three disciplines. One operating company. Telala establishes plantations, operates them with industrial discipline, and makes every material event visible and traceable.";
+
+const TAGLINES = [
+  "WE ESTABLISH PLANTATIONS.",
+  "WE OPERATE THEM.",
+  "WE HELP YOU SEE EVERYTHING.",
+];
 
 export const Route = createFileRoute("/what-we-do")({
   head: () => ({
@@ -33,51 +40,73 @@ export const Route = createFileRoute("/what-we-do")({
 });
 
 function WhatWeDo() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [key, setKey] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % TAGLINES.length);
+      setKey((prev) => prev + 1);
+    }, 3500);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  const currentWords = TAGLINES[currentIndex].split(" ");
+
   return (
     <>
-      {/* 1. Page Hero */}
-      <section className="w-full bg-white text-black pt-28 pb-20 md:pt-36 md:pb-8">
-        <div className="w-full px-5 md:px-10">
-          
-            <p className="label text-signal">THIS IS HOW TELALA WORKS.</p>
-            <h1 className="beat-lg mt-8 max-w-[23ch] text-black">
-              WE ESTABLISH PLANTATIONS. WE OPERATE THEM. WE HELP YOU SEE—EVERYTHING.
+      {/* 1. Page Hero with Background Image, Increased Height, and Red-to-Transparent Gradient Overlay */}
+      <section className="relative isolate w-full pt-44 pb-36 md:pt-60 md:pb-48 min-h-[75vh] flex flex-col justify-center overflow-hidden bg-ink">
+        {/* Background Image & Left-to-Right Red Gradient Overlay */}
+        <div className="absolute inset-0 -z-10">
+          <img
+            src={heroImage}
+            alt="Oil palm canopy background"
+            className="size-full object-cover object-top"
+          />
+          {/* Left-to-right gradient overlay (opaque red on left fading out to transparent on right) */}
+          <div className="absolute inset-0 bg-gradient-to-r from-red-950/100 via-red-900/60 to-transparent" />
+        </div>
+
+        <div className="w-full px-5 md:px-10 z-10">
+          <div className="min-h-[140px] md:min-h-[220px] flex flex-col justify-center">
+            <h1 key={key} className="beat-lg mt-8 max-w-[23ch] text-white flex flex-wrap gap-x-[0.3em] gap-y-2 overflow-hidden">
+              {currentWords.map((word, i) => (
+                <motion.span
+                  key={`${key}-${word}-${i}`}
+                  className="inline-block"
+                  initial={{ opacity: 0, y: 24 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{
+                    duration: 0.5,
+                    delay: i * 0.08,
+                    ease: EASE,
+                  }}
+                >
+                  {word}
+                </motion.span>
+              ))}
             </h1>
-            <p className="mt-4 text-lg md:text-xl text-neutral-600 max-w-[70ch] leading-relaxed">
-              Three disciplines. One operating company. Built to run Africa's oil palm industry the way an industry this valuable deserves to be run.
-            </p>
-          
+          </div>
+          <p className="mt-4 text-lg md:text-xl text-neutral-200 max-w-[60ch] leading-relaxed">
+            Three disciplines. One operating company. Built to run Africa's oil palm industry the way an industry this valuable deserves to be run.
+          </p>
         </div>
       </section>
 
-
-      {/* 2. Image Section (Evolution Visual) */}
-
-      <Rise delay={0}>
-            <div className="relative mt-6 h-[550px] w-full overflow-hidden ">
-              <img
-                src={underHero}
-                alt="Oil palm canopy in full daylight"
-                className="absolute inset-0 size-full object-cover"
-              />
-              <div className="absolute inset-0 bg-ink/20" />
-            </div>
-          </Rise>
-
-      <section className="w-full bg-white text-black pt-28 pb-20 md:pt-36 md:pb-8">
+      <section className="w-full bg-white text-black pt-28 pb-20 md:pt-16 md:pb-8">
         <div className="w-full px-5 md:px-10">
             <h2 className="beat-lg mt-8 max-w-[23ch] text-black">
               PHASES
             </h2>
-          
         </div>
       </section>
+
       {/* 3. Three Disciplines Section - Full width, white background cards with hover states */}
       <section className="w-full bg-white py-24 md:py-2">
         <div className="w-full px-5 md:px-10">
           <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
-            
-            
             <DisciplineCard
               eyebrow="01 · Establish"
               heading="Right from the dirt. Everything Assessed. Nothing assumed."
@@ -98,11 +127,9 @@ function WhatWeDo() {
               body="Every harvest. Every transfer. Every hand that touches your land. Somewhere between the field and your phone call, most of that information gets lost — or worse, someone decides what you get to hear. We built the system that ends that. Every action logged the moment it happens, not summarized weeks later by someone with a reason to round the numbers up. We built it because we needed it ourselves, running our own plantations, tired of finding out the truth too late to act on it. This is what your land looks like when nothing gets to hide."
               visual={<SeeVisual />}
             />
-
           </div>
         </div>
       </section>
-      
 
       {/* 4. Others (Vision Strip & Operating Layer CTA section) */}
       <VisionStrip />
@@ -112,12 +139,11 @@ function WhatWeDo() {
           {/* Left Column: Text & CTA Links */}
           <div>
             <Rise>
-              <p className="label text-signal">The operating layer</p>
               <h2 className="beat-lg mt-6 max-w-[22ch]">One system. Every plantation we run, runs on it.</h2>
             </Rise>
             <Rise delay={0.12}>
-              <p className="quiet mt-8 max-w-[52ch]">
-                One system. Every plantation we run, runs on it. Not a client version and a real version. The same one. We don't hand you a dashboard and keep the actual tool for ourselves. What tracks our own plantations, block by block, is what tracks yours. If it's good enough to run our money on, it's good enough to run yours.
+              <p className="quiet mt-8 max-w-[58ch]">
+                One system. Every plantation we run, runs on it. Not a client version and a real version. The same one. We don't hand you a dashboard and keep the actual tool for ourselves. What tracks our own plantations, block by block, is what tracks yours. <br /><br /> If it's good enough to run our money on, it's good enough to run yours.
               </p>
             </Rise>
             <Rise delay={0.2}>
@@ -217,9 +243,9 @@ function DisciplineCard({
   return (
     <Rise amount={0.2}>
       {/* Card wrapper with white background and dark text for high visibility */}
-      <div className="group relative flex h-full flex-col justify-between overflow-hidden border border-hairline bg-white p-8 md:p-10 shadow-sm transition-all duration-300">
+      <div className="group relative flex h-full flex-col justify-between overflow-hidden border border-hairline bg-white p-8 md:p-10 shadow-sm transition-all duration-300 hover:bg-[#8B0000]">
         
-        {/* DEFAULT STATE LAYER (White background, black/neutral-900 text) */}
+        {/* DEFAULT STATE LAYER (White background, dark text) */}
         <div className="flex h-full flex-col justify-between transition-opacity duration-300 group-hover:opacity-0">
           <div>
             <p className="label text-signal">{eyebrow}</p>
@@ -230,12 +256,12 @@ function DisciplineCard({
           </div>
         </div>
 
-        {/* HOVER STATE LAYER (Reveals body description & expand prompt) */}
-        <div className="absolute inset-0 flex flex-col justify-between bg-white p-8 md:p-10 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+        {/* HOVER STATE LAYER (Reveals body description, Okich background, white text) */}
+        <div className="absolute inset-0 flex flex-col justify-between bg-[#8B0000] p-8 md:p-10 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
           <div>
-            <p className="label text-signal">{eyebrow}</p>
-            <h3 className="beat-md mt-6 text-neutral-900 font-semibold tracking-tight">{heading}</h3>
-            <p className="quiet mt-6 text-sm md:text-base leading-relaxed text-neutral-600">{body}</p>
+            <p className="label text-white/80">{eyebrow}</p>
+            <h3 className="beat-md mt-6 text-white font-semibold tracking-tight">{heading}</h3>
+            <p className="quiet mt-6 text-sm md:text-base leading-relaxed text-neutral-100">{body}</p>
           </div>
         </div>
 
@@ -266,7 +292,6 @@ function EstablishVisual() {
         <span className="absolute left-[8%] top-[calc(58%-4px)] block size-2 bg-signal" />
         <span className="absolute right-[8%] top-[calc(58%-4px)] block size-2 bg-signal" />
       </div>
-      
     </figure>
   );
 }
@@ -320,7 +345,6 @@ function SeeVisual() {
         <span className="absolute left-[8%] top-[calc(58%-4px)] block size-2 bg-signal" />
         <span className="absolute right-[8%] top-[calc(58%-4px)] block size-2 bg-signal" />
       </div>
-      
     </figure>
   );
 }
@@ -331,8 +355,6 @@ function VisionStrip() {
     { value: 10000000, suffix: "", label: "tonnes harvested and verified through Telala OS" },
     { value: 10, suffix: "", label: "countries of operation" },
   ];
-
- 
 }
 
 function CountUp({ to }: { to: number }) {
