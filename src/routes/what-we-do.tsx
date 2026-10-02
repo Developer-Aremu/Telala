@@ -52,7 +52,7 @@ function WhatWeDo() {
     return () => clearInterval(interval);
   }, []);
 
-  const currentWords = TAGLINES[currentIndex].split(" ");
+  const currentWords = (TAGLINES[currentIndex] ?? "").split(" ");
 
   return (
     <>
@@ -131,8 +131,8 @@ function WhatWeDo() {
         </div>
       </section>
 
-      {/* 4. Others (Vision Strip & Operating Layer CTA section) */}
-      <VisionStrip />
+      {/* 4. Others (Vision Strip & Operating Layer CTA section) 
+      <VisionStrip /> */}
 
       <Section>
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16">
