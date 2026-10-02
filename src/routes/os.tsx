@@ -93,12 +93,12 @@ function TelalaOS() {
 
             {/* Right Column: Header text 2 and its associated paragraph */}
             <Rise delay={0.2}>
-              <div>
+              <div className="space-y-6 pt-2 w-[70ch]">
                 <h2 className="beat-lg text-white">What you can't <span className="text-signal">see</span> is where the margins <span className="text-signal">leak</span></h2>
-                <p className="quiet mt-4 text-base text-white leading-relaxed w-[45ch]">
+                <p className="quiet mt-4 text-base text-white leading-relaxed w-[100ch]">
                   Loss on a plantation rarely shows itself. It looks like a normal Tuesday. A weight that's a bit off. A truck that took too long, with no reason why. A block that doesn't add up once it reaches the mill.
                 </p>
-                <p className="quiet mt-4 text-base leading-relaxed font-medium text-black">
+                <p className="quiet mt-4 text-base leading-relaxed font-medium text-white">
                   It's not about blame. It's that no one — not you, not your managers — has a way to know, one way or the other.
                 </p>
               </div>
