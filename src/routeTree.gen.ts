@@ -16,6 +16,7 @@ import { Route as ContactRouteImport } from './routes/contact'
 import { Route as IndustryRouteImport } from './routes/industry'
 import { Route as InvestorsRouteImport } from './routes/investors'
 import { Route as OsRouteImport } from './routes/os'
+import { Route as OshomepageRouteImport } from './routes/oshomepage'
 import { Route as OwnersRouteImport } from './routes/owners'
 import { Route as ReportsRouteImport } from './routes/reports'
 import { Route as WhatWeDoRouteImport } from './routes/what-we-do'
@@ -55,6 +56,11 @@ const OsRoute = OsRouteImport.update({
   path: '/os',
   getParentRoute: () => rootRouteImport,
 } as any)
+const OshomepageRoute = OshomepageRouteImport.update({
+  id: '/oshomepage',
+  path: '/oshomepage',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const OwnersRoute = OwnersRouteImport.update({
   id: '/owners',
   path: '/owners',
@@ -79,6 +85,7 @@ export interface FileRoutesByFullPath {
   '/industry': typeof IndustryRoute
   '/investors': typeof InvestorsRoute
   '/os': typeof OsRoute
+  '/oshomepage': typeof OshomepageRoute
   '/owners': typeof OwnersRoute
   '/reports': typeof ReportsRoute
   '/what-we-do': typeof WhatWeDoRoute
@@ -91,6 +98,7 @@ export interface FileRoutesByTo {
   '/industry': typeof IndustryRoute
   '/investors': typeof InvestorsRoute
   '/os': typeof OsRoute
+  '/oshomepage': typeof OshomepageRoute
   '/owners': typeof OwnersRoute
   '/reports': typeof ReportsRoute
   '/what-we-do': typeof WhatWeDoRoute
@@ -104,6 +112,7 @@ export interface FileRoutesById {
   '/industry': typeof IndustryRoute
   '/investors': typeof InvestorsRoute
   '/os': typeof OsRoute
+  '/oshomepage': typeof OshomepageRoute
   '/owners': typeof OwnersRoute
   '/reports': typeof ReportsRoute
   '/what-we-do': typeof WhatWeDoRoute
@@ -118,6 +127,7 @@ export interface FileRouteTypes {
     | '/industry'
     | '/investors'
     | '/os'
+    | '/oshomepage'
     | '/owners'
     | '/reports'
     | '/what-we-do'
@@ -130,6 +140,7 @@ export interface FileRouteTypes {
     | '/industry'
     | '/investors'
     | '/os'
+    | '/oshomepage'
     | '/owners'
     | '/reports'
     | '/what-we-do'
@@ -142,6 +153,7 @@ export interface FileRouteTypes {
     | '/industry'
     | '/investors'
     | '/os'
+    | '/oshomepage'
     | '/owners'
     | '/reports'
     | '/what-we-do'
@@ -155,6 +167,7 @@ export interface RootRouteChildren {
   IndustryRoute: typeof IndustryRoute
   InvestorsRoute: typeof InvestorsRoute
   OsRoute: typeof OsRoute
+  OshomepageRoute: typeof OshomepageRoute
   OwnersRoute: typeof OwnersRoute
   ReportsRoute: typeof ReportsRoute
   WhatWeDoRoute: typeof WhatWeDoRoute
@@ -211,6 +224,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof OsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/oshomepage': {
+      id: '/oshomepage'
+      path: '/oshomepage'
+      fullPath: '/oshomepage'
+      preLoaderRoute: typeof OshomepageRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/owners': {
       id: '/owners'
       path: '/owners'
@@ -243,6 +263,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndustryRoute: IndustryRoute,
   InvestorsRoute: InvestorsRoute,
   OsRoute: OsRoute,
+  OshomepageRoute: OshomepageRoute,
   OwnersRoute: OwnersRoute,
   ReportsRoute: ReportsRoute,
   WhatWeDoRoute: WhatWeDoRoute,

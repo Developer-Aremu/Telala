@@ -22,7 +22,7 @@ function TelalaOS() {
             <Rise>
               <p className="label text-signal">Telala OS</p>
             </Rise>
-            <Rise delay={0.1}>
+            <Rise delay={0}>
               <h1 className="beat-lg mt-6 max-w-[26ch] text-black">
                 Something is going missing from your plantation. You just don't know what or from where. Not yet.
               </h1>
@@ -93,12 +93,12 @@ function TelalaOS() {
 
             {/* Right Column: Header text 2 and its associated paragraph */}
             <Rise delay={0.2}>
-              <div className="space-y-6 pt-2 w-[70ch]">
+              <div className="space-y-6 pt-2">
                 <h2 className="beat-lg text-white">What you can't <span className="text-signal">see</span> is where the margins <span className="text-signal">leak</span></h2>
-                <p className="quiet mt-4 text-base text-white leading-relaxed w-[100ch]">
+                <p className="quiet mt-4 text-base text-white leading-relaxed max-w-4xl">
                   Loss on a plantation rarely shows itself. It looks like a normal Tuesday. A weight that's a bit off. A truck that took too long, with no reason why. A block that doesn't add up once it reaches the mill.
                 </p>
-                <p className="quiet mt-4 text-base leading-relaxed font-medium text-white">
+                <p className="quiet mt-4 text-base leading-relaxed font-medium text-white max-w-4xl">
                   It's not about blame. It's that no one — not you, not your managers — has a way to know, one way or the other.
                 </p>
               </div>
@@ -180,7 +180,7 @@ function TelalaOS() {
               Not hoping the reports are true. Knowing — because every number is checked the second it's made.
             </p>
             <div className="mt-10 flex flex-wrap justify-center gap-4">
-              <ActionLink to="/contact">Join the waitlist</ActionLink>
+              <ActionLink to="/oshomepage">Preview the OS</ActionLink>
               <ActionLink to="/what-we-do" tone="line">
                 Explore operations
               </ActionLink>

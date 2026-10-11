@@ -179,7 +179,7 @@ function WaitlistPage() {
                         {aud.topTag}
                       </span>
                     )}
-                    <p className="font-serif text-[22px] md:text-[24px] font-bold leading-[1.2] mb-4 text-foreground group-hover:text-signal transition-colors">
+                    <p className="beat-lg text-[22px] md:text-[24px] font-bold leading-[1.2] mb-4 text-foreground group-hover:text-signal transition-colors">
                       {aud.title}
                     </p>
                     <p className="text-[14.5px] leading-[1.6] text-muted-foreground mb-4">

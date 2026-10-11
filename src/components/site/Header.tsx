@@ -8,7 +8,7 @@ const NAV = [
   { label: "Owners", to: "/owners" },
   //{ label: "Investors", to: "/investors" },
   { label: "Industry", to: "/industry" },
-  { label: "About", to: "/about" },
+  //{ label: "About", to: "/about" },
   { label: "Reports", to: "/reports" },
   { label: "Careers", to: "/careers" },
 ] as const;
@@ -81,7 +81,7 @@ export function Header() {
                   : "bg-foreground text-background hover:bg-signal hover:text-signal-foreground",
               )}
             >
-              Join the waitlist
+              Work with Telala
             </Link>
             <button
               aria-label="Open menu"

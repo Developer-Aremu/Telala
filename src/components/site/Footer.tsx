@@ -62,7 +62,7 @@ export function Footer() {
             to="/contact"
             className="label mt-5 inline-flex bg-signal px-5 py-4 text-signal-foreground transition-colors hover:bg-ink-foreground hover:text-ink"
           >
-            Join the waitlist
+            Work with Telala
           </Link>
         </div>
       </div>
