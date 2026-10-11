@@ -4,7 +4,6 @@ import { Rise } from "@/components/site/motion-primitives";
 import canopyDay from "@/assets/Contemplating the Palm Grove.png";
 import videomain from "@/assets/videoImport.mp4";
 
-
 const TITLE = "Telala OS — See the Plantation";
 
 export const Route = createFileRoute("/os")({
@@ -44,14 +43,13 @@ function TelalaOS() {
       </section>
 
       {/* 2. The Report That Was Probably Right - Two-part layout adjustments */}
-      <div className="border-y border-hairline py-20 md:py-28 px-20 bg-black">
+      <div className="border-y border-hairline py-20 md:py-28 px-6 md:px-20 bg-black">
         <div className="py-10 md:py-14 space-y-16">
           
           {/* First Two-Column Row: Header text on the left, first paragraph text immediately to its right */}
           <div className="grid gap-8 lg:grid-cols-2 lg:items-center">
             <Rise delay={0.1}>
               <div>
-                
                 <h2 className="beat-lg mt-0 text-white">
                   The Report That Was Probably Right
                 </h2>
@@ -60,10 +58,10 @@ function TelalaOS() {
 
             <Rise delay={0.15}>
               <div className="space-y-6 pt-2">
-                <p className="text-base text-white leading-relaxed text-neutral-700">
+                <p className="text-base text-neutral-300 leading-relaxed">
                   Every week, the numbers look fine. The harvest looks good. The logs match up. Nothing seems wrong. And still, somehow, the plantation makes less than it should.
                 </p>
-                <p className="text-base text-white leading-relaxed text-neutral-700">
+                <p className="text-base text-neutral-300 leading-relaxed">
                   That's the hard part. Nothing here is clearly wrong. A load weighed a little less than it should. A truck took longer than it should. A number got rounded before it reached you. Each one means nothing on its own. Add them up, and the plantation is quietly losing more than it should — with no single moment you can point to and say: that's where it went.
                 </p>
               </div>
@@ -71,11 +69,11 @@ function TelalaOS() {
           </div>
 
           {/* Second Two-Column Row: Video on the left, Header text 2 & its associated paragraph on the right */}
-          <div className="grid gap-12 lg:grid-cols-2 lg:items-center ">
+          <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
             
             {/* Left Column: Video */}
             <Rise delay={0.25}>
-              <div className="relative aspect-[16/10] w-full overflow-hidden  bg-neutral-900 shadow-lg flex items-center justify-center ">
+              <div className="relative aspect-[16/10] w-full overflow-hidden bg-neutral-900 shadow-lg flex items-center justify-center">
                 <video
                   autoPlay
                   loop
@@ -83,19 +81,19 @@ function TelalaOS() {
                   playsInline
                   className="absolute inset-0 size-full object-cover"
                 >
-                   <source src={videomain} type="video/mp4" />
+                  <source src={videomain} type="video/mp4" />
                   Your browser does not support the video tag.
                 </video>
-
-                
               </div>
             </Rise>
 
             {/* Right Column: Header text 2 and its associated paragraph */}
             <Rise delay={0.2}>
               <div className="space-y-6 pt-2">
-                <h2 className="beat-lg text-white">What you can't <span className="text-signal">see</span> is where the margins <span className="text-signal">leak</span></h2>
-                <p className="quiet mt-4 text-base text-white leading-relaxed max-w-4xl">
+                <h2 className="beat-lg text-white">
+                  What you can't <span className="text-signal">see</span> is where the margins <span className="text-signal">leak</span>
+                </h2>
+                <p className="quiet mt-4 text-base text-neutral-300 leading-relaxed max-w-4xl">
                   Loss on a plantation rarely shows itself. It looks like a normal Tuesday. A weight that's a bit off. A truck that took too long, with no reason why. A block that doesn't add up once it reaches the mill.
                 </p>
                 <p className="quiet mt-4 text-base leading-relaxed font-medium text-white max-w-4xl">
@@ -126,7 +124,7 @@ function TelalaOS() {
           </Rise>
 
           <Rise delay={0.15}>
-            <div className="overflow-hidden bg-card p-6 md:p-8 shadow-sm ">
+            <div className="overflow-hidden bg-card p-6 md:p-8 shadow-sm">
               <p className="label text-signal">Telala OS · LiveEstate</p>
               <div className="mt-6 space-y-3 font-mono text-xs">
                 <div className="bg-white p-3.5 rounded-lg flex items-center justify-between border border-hairline">
@@ -155,14 +153,13 @@ function TelalaOS() {
       <Section>
         <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
           <Rise delay={0.15}>
-            <div className="relative h-[320px] w-full overflow-hidden bg-neutral-200/60 shadow-inner flex items-center justify-center ">
+            <div className="relative h-[320px] w-full overflow-hidden bg-neutral-200/60 shadow-inner flex items-center justify-center">
               <span className="font-mono text-xs text-neutral-400 tracking-wider uppercase">
                 [Field Operations Placeholder]
               </span>
             </div>
           </Rise>
           <Rise>
-            
             <h2 className="beat-lg mt-6">The gap closes, or it stays open. There's no in-between.</h2>
             <p className="quiet mt-6 text-base md:text-lg leading-relaxed">
               A plantation either has a system that catches a 6% problem the same day it happens. Or it finds out later — once thousands in unaccounted crop have already quietly vanished.
@@ -180,7 +177,7 @@ function TelalaOS() {
               Not hoping the reports are true. Knowing — because every number is checked the second it's made.
             </p>
             <div className="mt-10 flex flex-wrap justify-center gap-4">
-              <ActionLink to="/oshomepage">Preview the OS</ActionLink>
+              <ActionLink to={"/oshomepage" as any}>Preview the OS</ActionLink>
               <ActionLink to="/what-we-do" tone="line">
                 Explore operations
               </ActionLink>
