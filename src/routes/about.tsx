@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageHero, Section, ActionLink } from "@/components/site/PageShell";
 import { Rise } from "@/components/site/motion-primitives";
-import anotherImage from "@/assets/images17.jpg";
+import anotherImage from "@/assets/Background.jpg";
 const TITLE = "About — Telala";
 const DESCRIPTION =
   "The biggest losses on a plantation are rarely hidden on purpose. They're just never seen. Telala exists to make sure they are.";
