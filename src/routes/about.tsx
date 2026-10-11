@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageHero, Section, ActionLink } from "@/components/site/PageShell";
 import { Rise } from "@/components/site/motion-primitives";
-import newImage from "@/assets/images17.jpg";
+import anotherImage from "@/assets/images17.jpg";
 const TITLE = "About — Telala";
 const DESCRIPTION =
   "The biggest losses on a plantation are rarely hidden on purpose. They're just never seen. Telala exists to make sure they are.";
@@ -27,7 +27,7 @@ function About() {
       <Rise delay={0.25}>
         <div className="relative aspect-[4/3] mb-0 pb-0 w-full h-[86vh] min-h-[520px]  overflow-hidden border border-hairline shadow-sm">
            <img
-              src={newImage}
+              src={anotherImage}
               alt="Mature oil palm canopy under active management"
               loading="lazy"
               width={1200}

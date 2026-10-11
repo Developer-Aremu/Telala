@@ -38,8 +38,7 @@ function OsHomepage() {
             {/* Left Column: Headings, Supporting Text & CTAs */}
             <div className="lg:col-span-5">
               <Rise>
-                <p className="label text-signal">Telala OS</p>
-                
+                              
                 {/* Main Heading */}
                 <h1 className="beat-lg mt-6 max-w-[18ch] text-white">
                   Your Plantation. <br />
@@ -63,27 +62,7 @@ function OsHomepage() {
                 </div>
 
                 {/* Quick Highlights */}
-                <div className="mt-14 grid grid-cols-2 gap-6 pt-8 border-t border-white/15">
-                  <div className="space-y-2">
-                    <div className="size-10 rounded-lg bg-signal/20 border border-signal/40 flex items-center justify-center text-signal font-bold text-sm">
-                      OS
-                    </div>
-                    <h3 className="beat-sm text-white text-base">Field Control</h3>
-                    <p className="quiet text-xs text-neutral-400 leading-normal">
-                      Track yields, truck movements, and harvest records live from the field.
-                    </p>
-                  </div>
-
-                  <div className="space-y-2">
-                    <div className="size-10 rounded-lg bg-signal/20 border border-signal/40 flex items-center justify-center text-signal font-bold text-sm">
-                      HQ
-                    </div>
-                    <h3 className="beat-sm text-white text-base">Owner Visibility</h3>
-                    <p className="quiet text-xs text-neutral-400 leading-normal">
-                      One operational record accessible anywhere, even with offline field sync.
-                    </p>
-                  </div>
-                </div>
+                
               </Rise>
             </div>
 
@@ -154,8 +133,8 @@ function OsHomepage() {
         </div>
       </section>
 
-      {/* Feature Breakdown Section */}
-      <div id="features">
+      {/* Feature Breakdown Section 
+       <div id="features">
         <Section>
           <Rise>
             <p className="label text-signal">Capabilities</p>
@@ -189,7 +168,7 @@ function OsHomepage() {
             ))}
           </div>
         </Section>
-      </div>
+      </div>*/}
     </>
   );
 }
