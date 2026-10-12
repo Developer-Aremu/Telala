@@ -3,6 +3,10 @@ import { PageHero, Section, ActionLink } from "@/components/site/PageShell";
 import { Rise } from "@/components/site/motion-primitives";
 import heroImage from "@/assets/bgWorld.png";
 import coverHovers from "@/assets/Coverhover.jpg";
+import imageOne from "@/assets/wmremove-transformed.jpeg";
+import imageTwo from "@/assets/snehsha.jpeg";
+import imageFour from "@/assets/ahnaf-piash-liUvurgYGyw-unsplash.jpg-compressed.jpg";
+import imageThree from "@/assets/compressed-ly-le-minh-jF3zJ1EFuNM-unsplash.jpg";
 
 const TITLE = "Telala OS — Your Plantation. Under Control.";
 const DESCRIPTION = "Know what's happening. Know what needs to happen next.";
@@ -74,16 +78,16 @@ function OsHomepage() {
                   {/* Gallery Cards Stack */}
                   <div className="absolute top-0 inset-x-0 grid grid-cols-4 gap-3 md:gap-4 px-4 z-10">
                     <div className="h-32 md:h-44 rounded-2xl overflow-hidden border border-white/20 shadow-xl transform -rotate-3 hover:rotate-0 transition-transform duration-300">
-                      <img src={coverHovers} alt="Harvest tracking" className="size-full object-cover" />
+                      <img src={imageOne} alt="Harvest tracking" className="size-full object-cover" />
                     </div>
                     <div className="h-36 md:h-48 rounded-2xl overflow-hidden border border-white/20 shadow-xl transform translate-y-2 hover:translate-y-0 transition-transform duration-300">
-                      <img src={heroImage} alt="Plantation map" className="size-full object-cover" />
+                      <img src={imageTwo} alt="Plantation map" className="size-full object-cover" />
                     </div>
                     <div className="h-36 md:h-48 rounded-2xl overflow-hidden border border-white/20 shadow-xl transform -translate-y-2 hover:translate-y-0 transition-transform duration-300">
-                      <img src={coverHovers} alt="Mill activity" className="size-full object-cover" />
+                      <img src={imageThree} alt="Mill activity" className="size-full object-cover" />
                     </div>
                     <div className="h-32 md:h-44 rounded-2xl overflow-hidden border border-white/20 shadow-xl transform rotate-3 hover:rotate-0 transition-transform duration-300">
-                      <img src={heroImage} alt="Equipment status" className="size-full object-cover" />
+                      <img src={imageFour} alt="Equipment status" className="size-full object-cover" />
                     </div>
                   </div>
 
